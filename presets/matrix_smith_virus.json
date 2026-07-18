@@ -1,0 +1,115 @@
+{
+  "preset_version": 1,
+  "mode": "Character portrait",
+  "project_name": "Agent Smith - Virus Form",
+  "fields": {
+    "image_type": "Character portrait",
+    "purpose": "Matrix Graphic Novel - Character reference for artists",
+    "aspect_ratio": "1:1 square",
+    "background_type": "Black studio background",
+    "framing": "Full bleed",
+    "subject_type": "Single person",
+    "subject_count": 1,
+    "age_range": "Adult",
+    "appearance": {
+      "selected": [
+        "lean build",
+        "athletic build",
+        "angular face",
+        "sharp facial structure",
+        "pale skin",
+        "otherworldly appearance"
+      ],
+      "custom": "Tall stature (6'2\" approx.), features beginning to dissolve"
+    },
+    "hair": {
+      "selected": [
+        "short hair",
+        "black hair",
+        "messy hair"
+      ],
+      "custom": "Hair partially dissolving into black liquid"
+    },
+    "eyes": {
+      "selected": [
+        "glowing eyes",
+        "piercing gaze"
+      ],
+      "custom": "Black liquid spreading from eyes, no visible pupils"
+    },
+    "clothing": {
+      "selected": [
+        "formal suit",
+        "torn clothing",
+        "black clothing"
+      ],
+      "custom": "Tattered black suit, partially dissolved into black ooze"
+    },
+    "accessories": {
+      "selected": [
+        "sunglasses"
+      ],
+      "custom": "Sunglasses cracked, black liquid seeping through cracks"
+    },
+    "pose": "Dynamic action pose",
+    "action": "Hand extended, black liquid spreading outward",
+    "expression": "Angry",
+    "gaze": "Facing camera",
+    "shot_type": "Three-quarter body shot",
+    "camera_angle": "Low angle",
+    "perspective": "Wide-angle perspective",
+    "subject_placement": "Centred",
+    "depth_of_field": "Moderate depth of field",
+    "location": "Matrix digital space",
+    "setting_type": "Surreal environment",
+    "time_period": "Contemporary",
+    "time_of_day": "Indoors",
+    "weather": "Clear",
+    "lighting_type": "Hard cinematic lighting",
+    "lighting_direction": "Side-lit from left",
+    "colour_temperature": "Cold blue",
+    "contrast": "High contrast",
+    "atmosphere": "Smoke",
+    "art_style": "Graphic novel",
+    "linework": "Heavy black inks",
+    "shading": "Chiaroscuro",
+    "detail_level": "Extremely intricate",
+    "anatomy_style": "Slightly stylised anatomy",
+    "mood": "Threatening",
+    "palette_style": "Monochrome",
+    "main_colours": "#000000, #1a1a1a, #0d0d0d",
+    "saturation": "Desaturated",
+    "must_include": [
+      "Black liquid ooze spreading from body",
+      "Tattered suit dissolving",
+      "Cracked sunglasses",
+      "Hand extended forward",
+      "Black liquid tendrils",
+      "No visible mouth (sealed shut)"
+    ],
+    "must_avoid": [
+      "Extra fingers",
+      "Missing fingers",
+      "Extra limbs",
+      "Duplicated limbs",
+      "Malformed hands",
+      "Warped anatomy",
+      "Distorted face",
+      "Duplicated subjects",
+      "Unintended cropping",
+      "Cut-off feet",
+      "Accidental text",
+      "Watermarks",
+      "Unrequested logos",
+      "Low resolution",
+      "Heavy blur",
+      "Compression artifacts",
+      "Colorful elements",
+      "Clean clothing",
+      "Intact suit"
+    ],
+    "continuity_notes": "Agent Smith v2 (virus form). Self-replicating, no longer bound to single body. Black liquid can spread to assimilate others. Gained Oracle's powers after assimilation.",
+    "unchanged_details": "Facial structure (dissolving), height, general silhouette, black coloration",
+    "output_finish": "Production-ready final artwork"
+  }
+}

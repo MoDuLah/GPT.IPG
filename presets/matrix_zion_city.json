@@ -1,0 +1,97 @@
+{
+  "preset_version": 1,
+  "mode": "Environment portrait",
+  "project_name": "Underground City - Resistance Base",
+  "fields": {
+    "image_type": "Environment portrait",
+    "purpose": "Matrix Graphic Novel - Location reference for artists",
+    "aspect_ratio": "16:9 wide",
+    "background_type": "Industrial interior",
+    "framing": "Wide establishing shot",
+    "subject_type": "Architecture",
+    "subject_count": 0,
+    "appearance": {
+      "selected": [
+        "massive underground cavern",
+        "industrial complex",
+        "metallic structures",
+        "exposed piping"
+      ],
+      "custom": "Huge subterranean city carved into rock and steel"
+    },
+    "hair": {
+      "selected": [],
+      "custom": ""
+    },
+    "eyes": {
+      "selected": [],
+      "custom": ""
+    },
+    "clothing": {
+      "selected": [],
+      "custom": ""
+    },
+    "accessories": {
+      "selected": [],
+      "custom": ""
+    },
+    "pose": "",
+    "action": "",
+    "expression": "",
+    "gaze": "",
+    "shot_type": "Wide architectural shot",
+    "camera_angle": "Low angle looking up",
+    "perspective": "Forced perspective",
+    "subject_placement": "Full frame",
+    "depth_of_field": "Deep focus",
+    "location": "Underground human settlement",
+    "setting_type": "Industrial interior",
+    "time_period": "Post-apocalyptic",
+    "time_of_day": "Artificial lighting",
+    "weather": "None",
+    "lighting_type": "Industrial lighting",
+    "lighting_direction": "Multiple sources",
+    "colour_temperature": "Warm amber and cool blue mix",
+    "contrast": "High contrast",
+    "atmosphere": "Steam and smoke",
+    "art_style": "Graphic novel",
+    "linework": "Bold architectural lines",
+    "shading": "Hard shadow rendering",
+    "detail_level": "Highly detailed",
+    "anatomy_style": "N/A",
+    "mood": "Desperate hope",
+    "palette_style": "Limited industrial palette",
+    "main_colours": "#2d2d2d, #4a4a4a, #ff6b00 accents, #1a3a52",
+    "saturation": "Desaturated with warm highlights",
+    "must_include": [
+      "Massive underground cavern structure",
+      "Multiple levels connected by walkways",
+      "Exposed industrial piping and conduits",
+      "Central gathering plaza with seating",
+      "Hovercraft docking bays",
+      "Residential quarters stacked vertically",
+      "Central command/bridge area",
+      "Warm ambient lighting from fixtures",
+      "Steam rising from machinery",
+      "Human population in casual utilitarian clothing"
+    ],
+    "must_avoid": [
+      "Natural sunlight",
+      "Green vegetation",
+      "Modern consumer technology",
+      "Clean pristine surfaces",
+      "Decorative elements",
+      "Windows to outside",
+      "Sky visible",
+      "Accidental text",
+      "Watermarks",
+      "Unrequested logos",
+      "Low resolution",
+      "Heavy blur",
+      "Compression artifacts"
+    ],
+    "continuity_notes": "Underground human city. Last refuge of humanity. Industrial aesthetic with lived-in feel. Multiple vertical levels. Central plaza serves as community hub. Hovercraft dock here for Matrix operations.",
+    "unchanged_details": "Industrial architecture, vertical city layout, warm/cool lighting contrast, steam atmosphere",
+    "output_finish": "Production-ready final artwork"
+  }
+}
