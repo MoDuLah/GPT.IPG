@@ -1,0 +1,97 @@
+{
+  "preset_version": 1,
+  "mode": "Environment portrait",
+  "project_name": "Simulated Corporate Office - Interrogation Room",
+  "fields": {
+    "image_type": "Environment portrait",
+    "purpose": "Matrix Graphic Novel - Location reference for artists",
+    "aspect_ratio": "16:9 wide",
+    "background_type": "Sterile interior",
+    "framing": "Medium interior shot",
+    "subject_type": "Architecture",
+    "subject_count": 0,
+    "appearance": {
+      "selected": [
+        "minimalist interior",
+        "sterile environment",
+        "corporate office",
+        "interrogation room"
+      ],
+      "custom": "Cold, impersonal corporate space"
+    },
+    "hair": {
+      "selected": [],
+      "custom": ""
+    },
+    "eyes": {
+      "selected": [],
+      "custom": ""
+    },
+    "clothing": {
+      "selected": [],
+      "custom": ""
+    },
+    "accessories": {
+      "selected": [],
+      "custom": ""
+    },
+    "pose": "",
+    "action": "",
+    "expression": "",
+    "gaze": "",
+    "shot_type": "Medium interior shot",
+    "camera_angle": "Eye level",
+    "perspective": "Natural perspective",
+    "subject_placement": "Centred",
+    "depth_of_field": "Deep focus",
+    "location": "Simulated corporate environment",
+    "setting_type": "Indoor office space",
+    "time_period": "Contemporary (simulated)",
+    "time_of_day": "Indoors",
+    "weather": "None",
+    "lighting_type": "Fluorescent overhead lighting",
+    "lighting_direction": "Top-down",
+    "colour_temperature": "Cool fluorescent",
+    "contrast": "High contrast",
+    "atmosphere": "None",
+    "art_style": "Graphic novel",
+    "linework": "Clean sharp lines",
+    "shading": "Hard shadow rendering",
+    "detail_level": "Moderately detailed",
+    "anatomy_style": "N/A",
+    "mood": "Oppressive, clinical",
+    "palette_style": "Monochrome cool",
+    "main_colours": "#e8e8e8, #3d3d3d, #2d2d2d, #1a2a2a",
+    "saturation": "Desaturated",
+    "must_include": [
+      "Plain white or gray walls",
+      "Single metal table",
+      "Two metal chairs",
+      "Fluorescent ceiling lights",
+      "Minimal furnishings",
+      "Sterile clean surfaces",
+      "No windows visible",
+      "Cold impersonal atmosphere",
+      "Single door entrance",
+      "Harsh overhead lighting"
+    ],
+    "must_avoid": [
+      "Decorative elements",
+      "Warm lighting",
+      "Wood furniture",
+      "Plants or vegetation",
+      "Windows with views",
+      "Personal items",
+      "Colorful accents",
+      "Accidental text",
+      "Watermarks",
+      "Unrequested logos",
+      "Low resolution",
+      "Heavy blur",
+      "Compression artifacts"
+    ],
+    "continuity_notes": "Sterile corporate interrogation space. Used for questioning and control. Minimalist design creates psychological pressure. Cold, impersonal aesthetic. Represents institutional power within the simulation.",
+    "unchanged_details": "Sterile white/gray palette, fluorescent lighting, minimalist design, oppressive atmosphere",
+    "output_finish": "Production-ready final artwork"
+  }
+}

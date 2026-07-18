@@ -1,0 +1,96 @@
+{
+  "preset_version": 1,
+  "mode": "Environment portrait",
+  "project_name": "Simulated Hotel Corridor - Luxury Interior",
+  "fields": {
+    "image_type": "Environment portrait",
+    "purpose": "Matrix Graphic Novel - Location reference for artists",
+    "aspect_ratio": "16:9 wide",
+    "background_type": "Luxury interior",
+    "framing": "Medium corridor shot",
+    "subject_type": "Architecture",
+    "subject_count": 0,
+    "appearance": {
+      "selected": [
+        "luxury hotel corridor",
+        "carpeted floors",
+        "ornate lighting",
+        "elegant design"
+      ],
+      "custom": "High-end hotel hallway with dramatic lighting"
+    },
+    "hair": {
+      "selected": [],
+      "custom": ""
+    },
+    "eyes": {
+      "selected": [],
+      "custom": ""
+    },
+    "clothing": {
+      "selected": [],
+      "custom": ""
+    },
+    "accessories": {
+      "selected": [],
+      "custom": ""
+    },
+    "pose": "",
+    "action": "",
+    "expression": "",
+    "gaze": "",
+    "shot_type": "Medium corridor shot",
+    "camera_angle": "Eye level",
+    "perspective": "Linear perspective",
+    "subject_placement": "Full frame",
+    "depth_of_field": "Moderate depth of field",
+    "location": "Simulated luxury hotel",
+    "setting_type": "Indoor corridor",
+    "time_period": "Contemporary (simulated)",
+    "time_of_day": "Indoors",
+    "weather": "None",
+    "lighting_type": "Warm ambient lighting",
+    "lighting_direction": "Wall sconces and ceiling fixtures",
+    "colour_temperature": "Warm amber",
+    "contrast": "Medium-high contrast",
+    "atmosphere": "None",
+    "art_style": "Graphic novel",
+    "linework": "Clean architectural lines",
+    "shading": "Soft gradient shading",
+    "detail_level": "Highly detailed",
+    "anatomy_style": "N/A",
+    "mood": "Tense, luxurious",
+    "palette_style": "Warm neutral palette",
+    "main_colours": "#8b6f47, #4a3728, #2d2d2d, #1a1a1a",
+    "saturation": "Muted warm tones",
+    "must_include": [
+      "Luxury hotel corridor",
+      "Patterned carpet",
+      "Wall sconces with warm light",
+      "Wooden doors with number plates",
+      "Ornate ceiling fixtures",
+      "Decorative wall panels",
+      "Elegant furniture pieces",
+      "Warm amber lighting",
+      "Deep shadows",
+      "Sense of isolation despite luxury"
+    ],
+    "must_avoid": [
+      "Natural light",
+      "Modern minimalist design",
+      "Bright colors",
+      "Crowded spaces",
+      "Industrial elements",
+      "Cold lighting",
+      "Accidental text",
+      "Watermarks",
+      "Unrequested logos",
+      "Low resolution",
+      "Heavy blur",
+      "Compression artifacts"
+    ],
+    "continuity_notes": "Luxury hotel interior. Used for dramatic confrontations. Warm, opulent atmosphere contrasts with violence. Represents the seductive nature of the simulation.",
+    "unchanged_details": "Warm lighting, luxury materials, elegant design, isolated atmosphere",
+    "output_finish": "Production-ready final artwork"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "preset_version": 1,
+  "mode": "Environment portrait",
+  "project_name": "Surface Human Settlement - Near-Reality Outpost",
+  "fields": {
+    "image_type": "Environment portrait",
+    "purpose": "Matrix Graphic Novel - Location reference for artists",
+    "aspect_ratio": "16:9 wide",
+    "background_type": "Desolate landscape",
+    "framing": "Wide establishing shot",
+    "subject_type": "Architecture",
+    "subject_count": 0,
+    "appearance": {
+      "selected": [
+        "ruined urban landscape",
+        "scattered settlements",
+        "makeshift structures",
+        "desert environment"
+      ],
+      "custom": "Human outpost near surface with limited sky access"
+    },
+    "hair": {
+      "selected": [],
+      "custom": ""
+    },
+    "eyes": {
+      "selected": [],
+      "custom": ""
+    },
+    "clothing": {
+      "selected": [],
+      "custom": ""
+    },
+    "accessories": {
+      "selected": [],
+      "custom": ""
+    },
+    "pose": "",
+    "action": "",
+    "expression": "",
+    "gaze": "",
+    "shot_type": "Wide landscape shot",
+    "camera_angle": "Eye level",
+    "perspective": "Natural perspective",
+    "subject_placement": "Full frame",
+    "depth_of_field": "Deep focus",
+    "location": "Surface human settlement",
+    "setting_type": "Desolate urban ruins",
+    "time_period": "Post-apocalyptic",
+    "time_of_day": "Daylight (filtered)",
+    "weather": "Dusty haze",
+    "lighting_type": "Diffused sunlight",
+    "lighting_direction": "Overhead with atmospheric scattering",
+    "colour_temperature": "Warm golden with blue shadows",
+    "contrast": "Medium-high contrast",
+    "atmosphere": "Dust and haze",
+    "art_style": "Graphic novel",
+    "linework": "Clean architectural lines",
+    "shading": "Atmospheric perspective",
+    "detail_level": "Highly detailed",
+    "anatomy_style": "N/A",
+    "mood": "Hopeful desolation",
+    "palette_style": "Earthy desert palette",
+    "main_colours": "#d4a574, #8b7355, #4a4a4a, #1a3a52",
+    "saturation": "Muted earth tones",
+    "must_include": [
+      "Ruined cityscape in background",
+      "Makeshift human settlement structures",
+      "Solar panels or energy collectors",
+      "Scavenged building materials",
+      "Dusty desert terrain",
+      "Limited vegetation (hardy plants)",
+      "Communication arrays",
+      "Defensive perimeter walls",
+      "Hovercraft landing zone",
+      "Atmospheric haze filtering sunlight"
+    ],
+    "must_avoid": [
+      "Lush vegetation",
+      "Clear blue sky",
+      "Modern pristine buildings",
+      "Crowded urban activity",
+      "Water bodies",
+      "Snow or ice",
+      "Accidental text",
+      "Watermarks",
+      "Unrequested logos",
+      "Low resolution",
+      "Heavy blur",
+      "Compression artifacts"
+    ],
+    "continuity_notes": "Human settlement near surface. Acts as intermediary between underground cities and Matrix access points. More open than underground cities but still fortified. Dusty, sun-bleached aesthetic.",
+    "unchanged_details": "Desert landscape, ruined urban backdrop, makeshift settlement style, atmospheric haze",
+    "output_finish": "Production-ready final artwork"
+  }
+}

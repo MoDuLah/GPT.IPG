@@ -1,0 +1,121 @@
+{
+  "preset_version": 1,
+  "mode": "Character portrait",
+  "project_name": "Agent Smith - Original Agent",
+  "fields": {
+    "image_type": "Character portrait",
+    "purpose": "Matrix Graphic Novel - Character reference for artists",
+    "aspect_ratio": "1:1 square",
+    "background_type": "Plain solid background",
+    "framing": "Full bleed",
+    "subject_type": "Single person",
+    "subject_count": 1,
+    "age_range": "Adult",
+    "appearance": {
+      "selected": [
+        "lean build",
+        "athletic build",
+        "angular face",
+        "sharp facial structure",
+        "pale skin",
+        "commanding presence"
+      ],
+      "custom": "Tall stature (6'2\" approx.), perfectly symmetrical features"
+    },
+    "hair": {
+      "selected": [
+        "short hair",
+        "black hair",
+        "neatly styled",
+        "side part"
+      ],
+      "custom": "Perfectly groomed, no stray hairs"
+    },
+    "eyes": {
+      "selected": [
+        "grey eyes",
+        "piercing gaze",
+        "focused gaze"
+      ],
+      "custom": "Cold, emotionless stare behind sunglasses"
+    },
+    "clothing": {
+      "selected": [
+        "formal suit",
+        "blazer",
+        "tailored trousers",
+        "dress shoes",
+        "black clothing",
+        "pristine clothing"
+      ],
+      "custom": "Perfect black business suit, white dress shirt, black tie, polished black shoes"
+    },
+    "accessories": {
+      "selected": [
+        "sunglasses",
+        "earpiece"
+      ],
+      "custom": "Rectangular dark sunglasses, black earpiece in right ear"
+    },
+    "pose": "Confident standing pose",
+    "action": "Standing with hands at sides, authoritative posture",
+    "expression": "Neutral",
+    "gaze": "Facing camera",
+    "shot_type": "Half-body shot",
+    "camera_angle": "Eye level",
+    "perspective": "Natural perspective",
+    "subject_placement": "Centred",
+    "depth_of_field": "Deep focus",
+    "location": "Matrix corporate environment",
+    "setting_type": "Urban",
+    "time_period": "Contemporary",
+    "time_of_day": "Indoors",
+    "weather": "Clear",
+    "lighting_type": "Studio lighting",
+    "lighting_direction": "Three-point lighting",
+    "colour_temperature": "Neutral",
+    "contrast": "Medium contrast",
+    "atmosphere": "None",
+    "art_style": "Graphic novel",
+    "linework": "Clean thin lines",
+    "shading": "Soft gradient shading",
+    "detail_level": "Highly detailed",
+    "anatomy_style": "Realistic anatomy",
+    "mood": "Threatening",
+    "palette_style": "Monochrome",
+    "main_colours": "#000000, #ffffff, #333333",
+    "saturation": "Desaturated",
+    "must_include": [
+      "Perfect black business suit",
+      "Rectangular dark sunglasses",
+      "Black earpiece in right ear",
+      "White dress shirt",
+      "Black tie",
+      "Impeccably groomed appearance"
+    ],
+    "must_avoid": [
+      "Extra fingers",
+      "Missing fingers",
+      "Extra limbs",
+      "Duplicated limbs",
+      "Malformed hands",
+      "Warped anatomy",
+      "Distorted face",
+      "Duplicated subjects",
+      "Unintended cropping",
+      "Cut-off feet",
+      "Accidental text",
+      "Watermarks",
+      "Unrequested logos",
+      "Low resolution",
+      "Heavy blur",
+      "Compression artifacts",
+      "Casual clothing",
+      "Colorful elements",
+      "Disheveled appearance"
+    ],
+    "continuity_notes": "Agent Smith v1 (original Agent). Perfectly symmetrical, emotionless. Same appearance across all Agent clones. Earpiece connects to shared consciousness.",
+    "unchanged_details": "Suit style, sunglasses shape, earpiece position, facial structure, hair style",
+    "output_finish": "Production-ready final artwork"
+  }
+}
