@@ -1,0 +1,96 @@
+{
+  "preset_version": 1,
+  "mode": "Environment portrait",
+  "project_name": "Machine City - Synthient Metropolis",
+  "fields": {
+    "image_type": "Environment portrait",
+    "purpose": "Matrix Graphic Novel - Location reference for artists",
+    "aspect_ratio": "16:9 wide",
+    "background_type": "Alien metropolis",
+    "framing": "Wide establishing shot",
+    "subject_type": "Architecture",
+    "subject_count": 0,
+    "appearance": {
+      "selected": [
+        "massive machine city",
+        "alien architecture",
+        "glowing structures",
+        "industrial complex"
+      ],
+      "custom": "Vast machine-built city with glowing organic-mechanical structures"
+    },
+    "hair": {
+      "selected": [],
+      "custom": ""
+    },
+    "eyes": {
+      "selected": [],
+      "custom": ""
+    },
+    "clothing": {
+      "selected": [],
+      "custom": ""
+    },
+    "accessories": {
+      "selected": [],
+      "custom": ""
+    },
+    "pose": "",
+    "action": "",
+    "expression": "",
+    "gaze": "",
+    "shot_type": "Wide architectural shot",
+    "camera_angle": "Elevated or ground level",
+    "perspective": "Deep perspective",
+    "subject_placement": "Full frame",
+    "depth_of_field": "Deep focus",
+    "location": "Machine city / Synthient metropolis",
+    "setting_type": "Alien urban environment",
+    "time_period": "Post-human civilization",
+    "time_of_day": "Indoors / Artificial",
+    "weather": "None",
+    "lighting_type": "Glowing organic light sources",
+    "lighting_direction": "Multiple ambient sources",
+    "colour_temperature": "Warm amber to orange",
+    "contrast": "Medium contrast",
+    "atmosphere": "Glowing haze",
+    "art_style": "Graphic novel",
+    "linework": "Organic-mechanical lines",
+    "shading": "Soft gradient with glow effects",
+    "detail_level": "Highly detailed",
+    "anatomy_style": "N/A",
+    "mood": "Alien, vast, mysterious",
+    "palette_style": "Warm glowing palette",
+    "main_colours": "#ff8c42, #ff6b35, #d45d3a, #8b4513",
+    "saturation": "Moderate saturation",
+    "must_include": [
+      "Massive machine-built structures",
+      "Glowing organic-mechanical architecture",
+      "Warm amber/orange lighting",
+      "Vast scale, towering buildings",
+      "Alien technology visible",
+      "No human elements",
+      "Complex layered structures",
+      "Glowing energy sources",
+      "Sense of otherworldliness",
+      "Industrial yet organic feel"
+    ],
+    "must_avoid": [
+      "Human architecture",
+      "Natural landscapes",
+      "Cool lighting",
+      "Minimalist design",
+      "Vegetation",
+      "Water bodies",
+      "Accidental text",
+      "Watermarks",
+      "Unrequested logos",
+      "Low resolution",
+      "Heavy blur",
+      "Compression artifacts"
+    ],
+    "continuity_notes": "Machine city represents the heart of Synthient civilization. Warm, glowing, alien architecture. Vast scale emphasizes the power of the machine world. Contrast to cold Matrix simulations and harsh real-world resistance bases.",
+    "unchanged_details": "Glowing organic-mechanical structures, warm amber lighting, alien aesthetic, vast scale",
+    "output_finish": "Production-ready final artwork"
+  }
+}

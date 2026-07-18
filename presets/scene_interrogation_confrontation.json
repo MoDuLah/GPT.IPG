@@ -1,0 +1,111 @@
+{
+  "preset_version": 1,
+  "mode": "Full scene composition",
+  "project_name": "Interrogation Confrontation - Corporate Office Space",
+  "fields": {
+    "image_type": "Full scene composition",
+    "purpose": "Matrix Graphic Novel - Scene template for artists",
+    "aspect_ratio": "16:9 wide",
+    "background_type": "Corporate interior",
+    "framing": "Medium shot with character interaction",
+    "subject_type": "Multiple characters",
+    "subject_count": 3,
+    "appearance": {
+      "selected": [
+        "dark suit, rectangular sunglasses",
+        "business casual attire",
+        "formal office wear"
+      ],
+      "custom": "Government agent in black suit confronting civilians in sterile office"
+    },
+    "hair": {
+      "selected": [
+        "short cropped hair",
+        "medium length dark hair"
+      ],
+      "custom": "Varied: Agent has short military cut, civilians have casual styles"
+    },
+    "eyes": {
+      "selected": [
+        "dark sunglasses",
+        "wide fearful eyes"
+      ],
+      "custom": "Agent wears signature rectangular sunglasses; civilians show fear"
+    },
+    "clothing": {
+      "selected": [
+        "black tailored suit",
+        "casual civilian clothing",
+        "white shirt and tie"
+      ],
+      "custom": "Agent in formal black suit; civilians in everyday casual wear"
+    },
+    "accessories": {
+      "selected": [
+        "leather gloves",
+        "shoulder holster",
+        "office furniture"
+      ],
+      "custom": "Agent wears leather gloves and carries concealed weapon"
+    },
+    "pose": "Agent standing dominantly, civilians seated or restrained",
+    "action": "Interrogation, questioning, confrontation",
+    "expression": "Agent: cold, emotionless; Civilians: fearful, confused",
+    "gaze": "Agent stares directly; civilians avoid eye contact",
+    "shot_type": "Medium shot capturing interaction",
+    "camera_angle": "Eye level, slightly low angle on agent",
+    "perspective": "Linear perspective emphasizing power dynamic",
+    "subject_placement": "Agent centered, civilians on sides or background",
+    "depth_of_field": "Moderate depth of field",
+    "location": "Sterile corporate office interior",
+    "setting_type": "Government or corporate interrogation room",
+    "time_period": "Contemporary urban",
+    "time_of_day": "Daytime interior",
+    "weather": "None",
+    "lighting_type": "Harsh fluorescent overhead",
+    "lighting_direction": "Top-down with shadows",
+    "colour_temperature": "Cool clinical white",
+    "contrast": "High contrast",
+    "atmosphere": "Tense, oppressive, sterile",
+    "art_style": "Graphic novel",
+    "linework": "Sharp clean lines",
+    "shading": "Hard shadow rendering",
+    "detail_level": "Highly detailed",
+    "anatomy_style": "Realistic proportions",
+    "mood": "Tense, threatening, authoritative",
+    "palette_style": "Desaturated corporate palette",
+    "main_colours": "#1a1a1a, #2d2d2d, #4a4a4a, #8b8b8b",
+    "saturation": "Low saturation",
+    "must_include": [
+      "Agent figure in black suit and sunglasses",
+      "Multiple civilians in casual clothing",
+      "Sterile office environment",
+      "Fluorescent lighting with harsh shadows",
+      "Power dynamic emphasized in composition",
+      "Tense body language",
+      "Minimal decorative elements",
+      "Cold, impersonal atmosphere",
+      "Sense of threat and authority",
+      "Realistic urban interior details"
+    ],
+    "must_avoid": [
+      "Warm inviting colors",
+      "Casual or friendly atmosphere",
+      "Outdoor elements",
+      "Natural lighting",
+      "Decorative office elements",
+      "Accidental text",
+      "Watermarks",
+      "Unrequested logos",
+      "Low resolution",
+      "Heavy blur",
+      "Compression artifacts"
+    ],
+    "continuity_notes": "Scene template for interrogation or confrontation sequences. Agent dominates with cold authority; civilians display fear and helplessness. Represents the threat of the system to unawakened humans. Clean, sterile environment emphasizes the artificial nature of the Matrix.",
+    "character_combination": "Agent (v1) + Civilians (generic)",
+    "environment_combination": "Interrogation Room + Corporate Office",
+    "composition_notes": "Agent positioned as threat, civilians as victims. Use lighting to emphasize power imbalance. Sharp lines and cold colors enhance tension.",
+    "unchanged_details": "Black suits, rectangular sunglasses, fluorescent lighting, sterile office",
+    "output_finish": "Production-ready final artwork"
+  }
+}

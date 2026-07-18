@@ -1,0 +1,96 @@
+{
+  "preset_version": 1,
+  "mode": "Environment portrait",
+  "project_name": "Resistance Hovercraft Interior - Industrial Vessel",
+  "fields": {
+    "image_type": "Environment portrait",
+    "purpose": "Matrix Graphic Novel - Location reference for artists",
+    "aspect_ratio": "16:9 wide",
+    "background_type": "Industrial interior",
+    "framing": "Wide establishing shot",
+    "subject_type": "Architecture",
+    "subject_count": 0,
+    "appearance": {
+      "selected": [
+        "industrial vessel interior",
+        "cramped mechanical space",
+        "exposed wiring",
+        "metal surfaces"
+      ],
+      "custom": "Cramped hovercraft interior with industrial equipment"
+    },
+    "hair": {
+      "selected": [],
+      "custom": ""
+    },
+    "eyes": {
+      "selected": [],
+      "custom": ""
+    },
+    "clothing": {
+      "selected": [],
+      "custom": ""
+    },
+    "accessories": {
+      "selected": [],
+      "custom": ""
+    },
+    "pose": "",
+    "action": "",
+    "expression": "",
+    "gaze": "",
+    "shot_type": "Wide interior shot",
+    "camera_angle": "Eye level",
+    "perspective": "Linear perspective",
+    "subject_placement": "Full frame",
+    "depth_of_field": "Moderate depth of field",
+    "location": "Resistance hovercraft interior",
+    "setting_type": "Industrial vessel",
+    "time_period": "Near-future",
+    "time_of_day": "Indoors",
+    "weather": "None",
+    "lighting_type": "Dim industrial lighting",
+    "lighting_direction": "Overhead and ambient",
+    "colour_temperature": "Cool blue-green",
+    "contrast": "Medium-high contrast",
+    "atmosphere": "Slight haze, metallic",
+    "art_style": "Graphic novel",
+    "linework": "Clean industrial lines",
+    "shading": "Hard shadow rendering",
+    "detail_level": "Highly detailed",
+    "anatomy_style": "N/A",
+    "mood": "Tense, cramped, industrial",
+    "palette_style": "Desaturated metallic",
+    "main_colours": "#2d3a3a, #1a2a2a, #4a5a5a, #0d1a1a",
+    "saturation": "Desaturated",
+    "must_include": [
+      "Cramped industrial interior",
+      "Exposed wiring and conduits",
+      "Metal bulkheads and panels",
+      "Operator console with monitors",
+      "Dim blue-green lighting",
+      "Cold metallic surfaces",
+      "Limited space, crowded equipment",
+      "Technical displays and readouts",
+      "Industrial ventilation",
+      "Sense of confinement"
+    ],
+    "must_avoid": [
+      "Clean modern design",
+      "Warm lighting",
+      "Spacious interiors",
+      "Decorative elements",
+      "Natural light",
+      "Comfortable furnishings",
+      "Accidental text",
+      "Watermarks",
+      "Unrequested logos",
+      "Low resolution",
+      "Heavy blur",
+      "Compression artifacts"
+    ],
+    "continuity_notes": "Resistance hovercraft interior. Cold, cramped, industrial. Used for Matrix operations and travel. Represents the harsh reality of life outside the simulation. Minimal privacy, functional design.",
+    "unchanged_details": "Metallic surfaces, industrial lighting, cramped space, technical equipment",
+    "output_finish": "Production-ready final artwork"
+  }
+}
