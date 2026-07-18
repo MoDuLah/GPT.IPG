@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -145,9 +146,18 @@ class SubjectProfilesTests(unittest.TestCase):
 
 class PresetVocabularyTests(unittest.TestCase):
     def test_preset_selected_values_exist_in_builder_controls(self) -> None:
-        preset_paths = sorted(Path("presets").glob("*.json"))
+        try:
+            result = subprocess.run(
+                ["git", "ls-files", "presets/*.json"],
+                check=True,
+                capture_output=True,
+                text=True,
+            )
+        except (OSError, subprocess.CalledProcessError):
+            self.skipTest("Tracked preset discovery requires Git")
+        preset_paths = [Path(line) for line in result.stdout.splitlines() if line.strip()]
         if not preset_paths:
-            self.skipTest("No preset folder in this checkout")
+            self.skipTest("No tracked preset JSON files in this checkout")
 
         field_defs = {}
         for _section, definitions in SECTIONS.items():
