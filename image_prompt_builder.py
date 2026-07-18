@@ -112,13 +112,21 @@ IMAGE_TYPES = [
     "Icon",
     "Character portrait",
     "Character sheet",
+    "Environment portrait",
     "Environment art",
+    "Scene concept",
     "Product image",
+    "Product mockup",
+    "Advertisement / campaign image",
+    "Infographic",
+    "Diagram or labeled explainer",
+    "UI mockup",
 ]
 ASPECTS = [
     NS,
     "1:1 square",
     "16:9 widescreen",
+    "16:9 wide",
     "9:16 vertical",
     "4:5 portrait",
     "3:2 landscape",
@@ -127,6 +135,11 @@ ASPECTS = [
     "A4 landscape",
     "Comic page portrait",
     "Ultra-wide banner",
+    "1024x1024 square",
+    "1024x1536 HD portrait",
+    "1536x1024 HD landscape",
+    "1536x864 slide landscape",
+    "2560x1440 QHD landscape",
 ]
 BACKGROUND_TYPES = [
     NS,
@@ -137,18 +150,35 @@ BACKGROUND_TYPES = [
     "White studio background",
     "Black studio background",
     "Soft gradient background",
+    "Urban cityscape",
+    "Industrial interior",
+    "Luxury interior",
+    "Sterile interior",
+    "Desolate landscape",
+    "Residential interior",
+    "Domestic interior",
+    "Underground transit",
+    "Digital void",
+    "Plain opaque background",
 ]
 SUBJECT_TYPES = [
     NS,
     "Single person",
     "Two people",
     "Group of people",
+    "Architecture",
+    "Environment",
+    "Interior space",
     "Creature",
     "Animal",
     "Vehicle",
+    "Aircraft or ship",
     "Object",
+    "Product",
     "Building",
     "Landscape",
+    "Diagram",
+    "UI screen",
     "Abstract concept",
 ]
 AGES = [NS, "Child", "Teenager", "Young adult", "Adult", "Middle-aged", "Older adult"]
@@ -164,6 +194,11 @@ POSES = [
     "Dynamic action pose",
     "Looking over shoulder",
     "Leaning against an object",
+    "Hands in coat pockets",
+    "Hands clasped behind back",
+    "Standing with hands at sides",
+    "Ready stance",
+    "Conversational stance",
 ]
 EXPRESSIONS = [
     NS,
@@ -178,6 +213,10 @@ EXPRESSIONS = [
     "Suspicious",
     "Surprised",
     "Exhausted",
+    "Focused",
+    "Stoic",
+    "Conspiratorial",
+    "Authoritative",
 ]
 GAZES = [
     NS,
@@ -202,6 +241,14 @@ SHOTS = [
     "Full-body shot",
     "Wide shot",
     "Extreme wide establishing shot",
+    "Wide architectural shot",
+    "Wide cityscape shot",
+    "Wide landscape shot",
+    "Medium interior shot",
+    "Medium corridor shot",
+    "Full room shot",
+    "Centered product shot",
+    "Multi-panel sequence",
     "Over-the-shoulder shot",
     "Two-shot",
 ]
@@ -215,6 +262,8 @@ ANGLES = [
     "Worm's-eye view",
     "Dutch angle",
     "Ground-level angle",
+    "Eye level or elevated",
+    "Low angle looking up",
 ]
 PERSPECTIVES = [
     NS,
@@ -228,6 +277,9 @@ PERSPECTIVES = [
     "Two-point perspective",
     "Three-point perspective",
     "Fisheye lens",
+    "Linear perspective",
+    "Infinite perspective",
+    "Forced perspective",
 ]
 PLACEMENTS = [
     NS,
@@ -239,6 +291,9 @@ PLACEMENTS = [
     "Foreground",
     "Midground",
     "Background",
+    "Full frame",
+    "Centered with generous padding",
+    "Clear negative space",
     "Symmetrical composition",
     "Asymmetrical composition",
 ]
@@ -262,6 +317,16 @@ SETTING_TYPES = [
     "Space",
     "Underwater",
     "Surreal environment",
+    "Urban cityscape",
+    "Indoor corridor",
+    "Indoor office space",
+    "Indoor living space",
+    "Indoor domestic space",
+    "Industrial interior",
+    "Underground transit hub",
+    "Abstract digital space",
+    "Desolate urban ruins",
+    "Large indoor space",
 ]
 PERIODS = [
     NS,
@@ -276,6 +341,9 @@ PERIODS = [
     "Near future",
     "Distant future",
     "Post-apocalyptic",
+    "Contemporary (simulated)",
+    "Not applicable",
+    "N/A",
 ]
 TIMES = [
     NS,
@@ -288,6 +356,11 @@ TIMES = [
     "Blue hour",
     "Night",
     "Midnight",
+    "Indoors",
+    "Overcast day",
+    "Daylight (filtered)",
+    "Daytime",
+    "Artificial lighting",
 ]
 WEATHER = [
     NS,
@@ -301,10 +374,15 @@ WEATHER = [
     "Fog",
     "Windy",
     "Dust storm",
+    "None",
+    "No weather effects",
+    "Light rain or mist",
+    "Dusty haze",
 ]
 LIGHTING = [
     NS,
     "Natural daylight",
+    "Cinematic lighting",
     "Soft cinematic lighting",
     "Hard cinematic lighting",
     "Studio lighting",
@@ -313,6 +391,16 @@ LIGHTING = [
     "Candlelight",
     "Firelight",
     "Fluorescent lighting",
+    "Fluorescent overhead lighting",
+    "Fluorescent tube lighting",
+    "Diffused ambient light",
+    "Diffused sunlight",
+    "Warm ambient lighting",
+    "Computer screen glow and dim lamps",
+    "Warm natural and artificial light",
+    "Even ambient light",
+    "Dramatic spot lighting",
+    "Industrial lighting",
     "Volumetric lighting",
     "Silhouette lighting",
 ]
@@ -326,6 +414,16 @@ LIGHT_DIRECTIONS = [
     "Under-lit",
     "Rim lighting",
     "Three-point lighting",
+    "Overcast sky",
+    "Overhead",
+    "Top-down",
+    "Multiple sources",
+    "Multiple small sources",
+    "Multiple angles",
+    "Omnidirectional",
+    "Window and overhead",
+    "Wall sconces and ceiling fixtures",
+    "Overhead with atmospheric scattering",
 ]
 TEMPERATURES = [
     NS,
@@ -337,6 +435,15 @@ TEMPERATURES = [
     "Golden amber",
     "Green fluorescent cast",
     "Magenta and cyan neon",
+    "Warm amber",
+    "Cool green-blue tint",
+    "Cool fluorescent",
+    "Warm golden with blue shadows",
+    "Cool blue from screens, warm from lamps",
+    "Cool white",
+    "Neutral white",
+    "Neutral to cool",
+    "Warm amber and cool blue mix",
 ]
 CONTRASTS = [
     NS,
@@ -346,6 +453,7 @@ CONTRASTS = [
     "Deep dramatic shadows",
     "Soft shadows",
     "Hard-edged shadows",
+    "Medium-high contrast",
 ]
 ATMOSPHERES = [
     NS,
@@ -359,6 +467,14 @@ ATMOSPHERES = [
     "Volumetric light rays",
     "Lens flare",
     "Heat haze",
+    "Light rain, mist, digital haze",
+    "Dust and haze",
+    "Dim, isolated",
+    "Cozy, welcoming",
+    "Slight haze",
+    "Dust particles in light beams",
+    "Steam and smoke",
+    "Digital haze",
 ]
 ART_STYLES = [
     NS,
@@ -378,6 +494,12 @@ ART_STYLES = [
     "Flat vector art",
     "Retro poster art",
     "Concept sketch",
+    "Candid photorealism",
+    "Premium product photography",
+    "Campaign photography",
+    "Instructional infographic",
+    "Clean UI mockup",
+    "Technical diagram",
 ]
 LINEWORK = [
     NS,
@@ -389,6 +511,12 @@ LINEWORK = [
     "Angular linework",
     "Cross-hatched inks",
     "Brush-pen linework",
+    "Clean architectural lines",
+    "Bold architectural lines",
+    "Clean sharp lines",
+    "Clean lines",
+    "Soft organic lines",
+    "Clean minimal lines",
 ]
 SHADING = [
     NS,
@@ -400,6 +528,9 @@ SHADING = [
     "Halftone shading",
     "Chiaroscuro",
     "Minimal shading",
+    "Hard shadow rendering",
+    "Atmospheric perspective",
+    "Soft uniform shading",
 ]
 DETAIL = [
     NS,
@@ -409,6 +540,7 @@ DETAIL = [
     "Highly detailed",
     "Extremely intricate",
     "Detailed subject, simplified background",
+    "Minimalist",
 ]
 MOODS = [
     NS,
@@ -424,6 +556,16 @@ MOODS = [
     "Melancholic",
     "Playful",
     "Surreal",
+    "Oppressive, mysterious",
+    "Tense, luxurious",
+    "Oppressive, clinical",
+    "Hopeful desolation",
+    "Isolated, mysterious",
+    "Comforting, mysterious",
+    "Tense, isolated",
+    "Neutral, focused",
+    "Tense, dramatic",
+    "Desperate hope",
 ]
 PALETTES = [
     NS,
@@ -439,6 +581,16 @@ PALETTES = [
     "Cold palette",
     "Warm palette",
     "Limited comic palette",
+    "Desaturated cool tones",
+    "Warm neutral palette",
+    "Monochrome cool",
+    "Earthy desert palette",
+    "Cool dark tones",
+    "Warm homey palette",
+    "Cool desaturated",
+    "Monochrome white",
+    "Neutral monochrome",
+    "Limited industrial palette",
 ]
 SATURATION = [
     NS,
@@ -447,6 +599,11 @@ SATURATION = [
     "Natural saturation",
     "Rich saturation",
     "Highly saturated",
+    "None",
+    "Muted warm tones",
+    "Muted earth tones",
+    "Desaturated with green tint",
+    "Desaturated with warm highlights",
 ]
 FONTS = [
     NS,
@@ -460,6 +617,8 @@ FONTS = [
     "Distressed",
     "Stencil",
     "Monospaced terminal",
+    "Inter-style modern sans-serif",
+    "Crisp label typography",
     "No text",
 ]
 TEXT_PLACEMENT = [
@@ -521,10 +680,12 @@ APPEARANCE_OPTIONS: OrderedDict[str, list[str]] = OrderedDict(
             "soft cheeks",
             "strong chin",
             "narrow chin",
+            "defined jawline",
         ],
         "Complexion and Skin": [
             "fair skin",
             "light skin",
+            "pale skin",
             "olive skin",
             "tan skin",
             "brown skin",
@@ -563,6 +724,9 @@ APPEARANCE_OPTIONS: OrderedDict[str, list[str]] = OrderedDict(
             "mysterious presence",
             "elegant presence",
             "rugged presence",
+            "intense gaze",
+            "authoritative presence",
+            "isolated presence",
             "youthful appearance",
             "mature appearance",
             "tired appearance",
@@ -570,6 +734,48 @@ APPEARANCE_OPTIONS: OrderedDict[str, list[str]] = OrderedDict(
             "well-groomed appearance",
             "unkempt appearance",
             "otherworldly appearance",
+        ],
+        "Scene and Environment Appearance": [
+            "dense urban environment",
+            "tall buildings",
+            "street level view",
+            "modern cityscape",
+            "luxury hotel corridor",
+            "carpeted floors",
+            "ornate lighting",
+            "elegant design",
+            "minimalist interior",
+            "sterile environment",
+            "corporate office",
+            "interrogation room",
+            "ruined urban landscape",
+            "scattered settlements",
+            "makeshift structures",
+            "desert environment",
+            "small apartment",
+            "cluttered space",
+            "computer setup",
+            "minimalist living",
+            "cozy kitchen",
+            "homey atmosphere",
+            "warm lighting",
+            "comfortable space",
+            "underground station",
+            "tiled walls",
+            "platform area",
+            "transit infrastructure",
+            "white void space",
+            "minimalist environment",
+            "simulated training ground",
+            "abstract architecture",
+            "large warehouse space",
+            "industrial interior",
+            "concrete floors",
+            "high ceilings",
+            "massive underground cavern",
+            "industrial complex",
+            "metallic structures",
+            "exposed piping",
         ],
     }
 )
@@ -606,6 +812,7 @@ HAIR_OPTIONS: OrderedDict[str, list[str]] = OrderedDict(
             "side part",
             "middle part",
             "fringe",
+            "neatly styled",
             "curtain bangs",
             "pixie cut",
             "bob cut",
@@ -735,6 +942,7 @@ CLOTHING_OPTIONS: OrderedDict[str, list[str]] = OrderedDict(
             "hoodie",
             "vest",
             "tactical vest",
+            "turtleneck",
             "corset",
             "armour chestplate",
         ],
@@ -759,6 +967,7 @@ CLOTHING_OPTIONS: OrderedDict[str, list[str]] = OrderedDict(
             "cargo pants",
             "tailored trousers",
             "leggings",
+            "leather pants",
             "skirt",
             "long skirt",
             "shorts",
@@ -774,7 +983,10 @@ CLOTHING_OPTIONS: OrderedDict[str, list[str]] = OrderedDict(
         ],
         "Genre and Role": [
             "casual streetwear",
+            "smart casual clothing",
             "formal suit",
+            "agent suit",
+            "ship uniform",
             "evening dress",
             "military uniform",
             "school uniform",
@@ -807,6 +1019,7 @@ CLOTHING_OPTIONS: OrderedDict[str, list[str]] = OrderedDict(
             "dusty clothing",
             "wet clothing",
             "battle-worn clothing",
+            "tight clothing",
         ],
         "Colour Direction": [
             "black clothing",
@@ -917,12 +1130,101 @@ ACCESSORY_OPTIONS: OrderedDict[str, list[str]] = OrderedDict(
     }
 )
 
+ENVIRONMENT_DETAIL_OPTIONS: OrderedDict[str, list[str]] = OrderedDict(
+    {
+        "Urban and Exterior": [
+            "dense urban environment",
+            "tall buildings",
+            "street level view",
+            "modern cityscape",
+            "skyscrapers in background",
+            "sidewalks and urban infrastructure",
+            "street level with vehicles",
+            "urban density",
+            "overcast sky with no direct sun",
+            "no natural vegetation visible",
+        ],
+        "Interior Spaces": [
+            "luxury hotel corridor",
+            "carpeted floors",
+            "ornate lighting",
+            "elegant design",
+            "minimalist interior",
+            "sterile environment",
+            "corporate office",
+            "interrogation room",
+            "small apartment",
+            "cluttered space",
+            "computer setup",
+            "minimalist living",
+            "cozy kitchen",
+            "homey atmosphere",
+            "warm lighting",
+            "comfortable space",
+        ],
+        "Transit and Industrial": [
+            "underground station",
+            "tiled walls",
+            "platform area",
+            "transit infrastructure",
+            "large warehouse space",
+            "industrial interior",
+            "concrete floors",
+            "high ceilings",
+            "massive underground cavern",
+            "industrial complex",
+            "metallic structures",
+            "exposed piping",
+            "artificial lighting from windows",
+        ],
+        "Digital Constructs": [
+            "digital code bridge",
+            "white void space",
+            "minimalist environment",
+            "simulated training ground",
+            "abstract architecture",
+            "green-blue color cast",
+            "sterile simulation aesthetic",
+            "digital haze",
+            "clean sterile aesthetic",
+        ],
+        "Surface and Ruins": [
+            "ruined urban landscape",
+            "scattered settlements",
+            "makeshift structures",
+            "desert environment",
+            "dusty haze",
+            "sun-bleached materials",
+            "fortified outpost",
+            "weathered surfaces",
+        ],
+    }
+)
+
+PROMPT_STRUCTURES = [
+    NS,
+    "Creative brief",
+    "Cinematic scene specification",
+    "Character lineup specification",
+    "Environment reference sheet",
+    "Surgical edit instruction",
+    "Style transfer instruction",
+    "Product mockup specification",
+    "Infographic / diagram specification",
+    "Text-heavy layout specification",
+]
+
+OUTPUT_QUALITY = [NS, "Auto", "Low", "Medium", "High"]
+OUTPUT_FORMATS = [NS, "PNG", "JPEG", "WebP"]
+OUTPUT_BACKGROUNDS = [NS, "Auto", "Opaque", "Transparent", "Plain white opaque", "Plain black opaque"]
+
 SUBJECT_OPTION_GROUPS = {
     "appearance": APPEARANCE_OPTIONS,
     "hair": HAIR_OPTIONS,
     "eyes": EYES_OPTIONS,
     "clothing": CLOTHING_OPTIONS,
     "accessories": ACCESSORY_OPTIONS,
+    "environment_details": ENVIRONMENT_DETAIL_OPTIONS,
 }
 
 # type values: combo, line, multi, spin, check, file, position, options
@@ -945,6 +1247,9 @@ SECTIONS: OrderedDict[str, list[tuple]] = OrderedDict(
                     "Comfortable margin around subject",
                     "Print-safe margins",
                     "Keep all limbs and objects inside frame",
+                    "Wide establishing shot",
+                    "Medium interior shot",
+                    "Medium corridor shot",
                 ],
             ),
             ("safe_space", "Reserved empty space", "line", "Example: leave top-right empty for title text..."),
@@ -953,7 +1258,8 @@ SECTIONS: OrderedDict[str, list[tuple]] = OrderedDict(
         "Subject": [
             ("subject_description", "Main subject", "multi", "Describe the subject in detail..."),
             ("subject_type", "Subject type", "combo", SUBJECT_TYPES),
-            ("subject_count", "Subject count", "spin", (1, 50, 1)),
+            ("subject_count", "Subject count", "spin", (0, 50, 1)),
+            ("subject_profiles", "Named subjects", "subjects", ""),
             ("age_range", "Age range", "combo", AGES),
             ("appearance", "Appearance", "options", SUBJECT_OPTION_GROUPS["appearance"]),
             ("hair", "Hair", "options", SUBJECT_OPTION_GROUPS["hair"]),
@@ -980,6 +1286,7 @@ SECTIONS: OrderedDict[str, list[tuple]] = OrderedDict(
             ("time_period", "Time period", "combo", PERIODS),
             ("time_of_day", "Time of day", "combo", TIMES),
             ("weather", "Weather", "combo", WEATHER),
+            ("environment_details", "Environment details", "options", SUBJECT_OPTION_GROUPS["environment_details"]),
             (
                 "architecture",
                 "Architecture / materials",
@@ -1040,6 +1347,7 @@ SECTIONS: OrderedDict[str, list[tuple]] = OrderedDict(
                     "Heroic comic proportions",
                     "Exaggerated proportions",
                     "Chibi proportions",
+                    "N/A",
                 ],
             ),
             ("mood", "Mood", "combo", MOODS),
@@ -1048,6 +1356,12 @@ SECTIONS: OrderedDict[str, list[tuple]] = OrderedDict(
                 "Custom style direction",
                 "multi",
                 "Texture, era, visual language, print treatment, influences...",
+            ),
+            (
+                "quality_texture_cues",
+                "Quality / texture cues",
+                "multi",
+                "Real materials, fabric folds, skin texture, edge quality, print clarity, film grain...",
             ),
         ],
         "Colour": [
@@ -1070,6 +1384,33 @@ SECTIONS: OrderedDict[str, list[tuple]] = OrderedDict(
             ("text_alignment", "Alignment", "combo", [NS, "Left aligned", "Centred", "Right aligned", "Justified"]),
             ("text_colour", "Text colour", "line", "Colour name or HEX value..."),
             ("text_notes", "Typography notes", "multi", "Hierarchy, outline, shadow, spacing..."),
+        ],
+        "Prompt Control": [
+            ("prompt_structure", "Prompt structure", "combo", PROMPT_STRUCTURES),
+            (
+                "reference_instructions",
+                "Reference image instructions",
+                "multi",
+                "For edits: what to transplant, style cues to keep, and areas that must remain unchanged...",
+            ),
+            (
+                "layout_constraints",
+                "Layout constraints",
+                "multi",
+                "Scale, spacing, padding, reading order, label placement, hierarchy, negative space...",
+            ),
+            (
+                "preserve_invariants",
+                "Preserve / lock",
+                "multi",
+                "Identity, face, pose, proportions, camera angle, framing, lighting, shadows, background...",
+            ),
+            (
+                "hard_constraints",
+                "Hard constraints",
+                "multi",
+                "No extra elements, no watermarks, no unrelated logos, exact text only once...",
+            ),
         ],
         "Requirements": [
             ("must_include", "Must include", "multi", "One requirement per line..."),
@@ -1115,6 +1456,10 @@ SECTIONS: OrderedDict[str, list[tuple]] = OrderedDict(
                     "Transparent asset-ready finish",
                 ],
             ),
+            ("output_size", "Output size", "combo", ASPECTS),
+            ("output_quality", "Generation quality", "combo", OUTPUT_QUALITY),
+            ("output_format", "File format", "combo", OUTPUT_FORMATS),
+            ("output_background", "Output background", "combo", OUTPUT_BACKGROUNDS),
             ("quality_safeguards", "Quality safeguards", "check", True),
             ("text_warning", "Typography warning", "check", True),
         ],
@@ -1475,6 +1820,197 @@ class FileField(QWidget):
         self.edit.clear()
 
 
+class SubjectProfilesField(QWidget):
+    PROFILE_DEFINITIONS = [
+        ("name", "Name", "line", "Subject name..."),
+        ("role", "Role", "line", "Hero, antagonist, bystander, background figure..."),
+        ("description", "Description", "multi", "Identity, silhouette, notable physical details..."),
+        ("subject_type", "Type", "combo", SUBJECT_TYPES),
+        ("age_range", "Age range", "combo", AGES),
+        ("appearance", "Appearance", "options", SUBJECT_OPTION_GROUPS["appearance"]),
+        ("hair", "Hair", "options", SUBJECT_OPTION_GROUPS["hair"]),
+        ("eyes", "Eyes", "options", SUBJECT_OPTION_GROUPS["eyes"]),
+        ("clothing", "Clothing", "options", SUBJECT_OPTION_GROUPS["clothing"]),
+        ("accessories", "Accessories", "options", SUBJECT_OPTION_GROUPS["accessories"]),
+        ("pose", "Pose", "combo", POSES),
+        ("action", "Action", "line", "What this subject is doing..."),
+        ("expression", "Expression", "combo", EXPRESSIONS),
+        ("gaze", "Facing / gaze", "combo", GAZES),
+        ("placement", "Placement", "combo", PLACEMENTS),
+        ("visual_priority", "Visual priority", "line", "How prominent this subject should be..."),
+        ("must_include", "Must include", "multi", "Subject-specific details that must appear..."),
+        ("continuity_notes", "Continuity notes", "multi", "Details to keep consistent for this subject..."),
+    ]
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.tabs = QTabWidget()
+        self.profiles: list[dict[str, QWidget]] = []
+        self.profile_cache: list[dict[str, Any]] = []
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.addWidget(self.tabs)
+        self.set_count(1)
+
+    def set_count(self, count: int) -> None:
+        count = max(0, int(count))
+        for index, profile_data in enumerate(self.data()):
+            if index < len(self.profile_cache):
+                self.profile_cache[index] = profile_data
+            else:
+                self.profile_cache.append(profile_data)
+        while self.tabs.count():
+            page = self.tabs.widget(0)
+            self.tabs.removeTab(0)
+            page.deleteLater()
+        self.profiles = []
+
+        for index in range(count):
+            profile_data = self.profile_cache[index] if index < len(self.profile_cache) else {}
+            fields = self.create_profile(index)
+            self.profiles.append(fields)
+            self.apply_profile_data(fields, profile_data)
+            self.tabs.addTab(self.profile_page(fields), self.tab_label(index))
+            name_widget = fields.get("name")
+            if isinstance(name_widget, QLineEdit):
+                name_widget.textChanged.connect(lambda _text="", i=index: self.refresh_tab_label(i))
+            self.refresh_tab_label(index)
+
+    def create_profile(self, index: int) -> dict[str, QWidget]:
+        fields: dict[str, QWidget] = {}
+        page = QWidget()
+        form = QFormLayout(page)
+        form.setFieldGrowthPolicy(QFormLayout.ExpandingFieldsGrow)
+        form.setLabelAlignment(Qt.AlignRight | Qt.AlignTop)
+        fields["_page"] = page
+        for key, label, field_type, config in self.PROFILE_DEFINITIONS:
+            widget = self.create_field(field_type, config)
+            fields[key] = widget
+            form.addRow(label, widget)
+        return fields
+
+    def profile_page(self, fields: dict[str, QWidget]) -> QWidget:
+        return fields["_page"]
+
+    @staticmethod
+    def create_field(field_type: str, config: Any) -> QWidget:
+        if field_type == "line":
+            widget = QLineEdit()
+            widget.setMaxLength(MAX_SINGLE_LINE_CHARS)
+            widget.setPlaceholderText(str(config))
+            return widget
+        if field_type == "multi":
+            widget = QPlainTextEdit()
+            widget.setPlaceholderText(str(config))
+            widget.setMinimumHeight(70)
+            widget.setMaximumHeight(115)
+            return widget
+        if field_type == "combo":
+            return ComboCustomField(config)
+        if field_type == "options":
+            return OptionPickerField("", config)
+        raise ValueError(f"Unknown subject profile field type: {field_type}")
+
+    def tab_label(self, index: int) -> str:
+        if index >= len(self.profiles):
+            return f"Subject {index + 1}"
+        name_widget = self.profiles[index].get("name")
+        if isinstance(name_widget, QLineEdit):
+            name = sanitize_prompt_text(name_widget.text(), MAX_SINGLE_LINE_CHARS, False)
+            if name:
+                return name[:28]
+        return f"Subject {index + 1}"
+
+    def refresh_tab_label(self, index: int) -> None:
+        if 0 <= index < self.tabs.count():
+            self.tabs.setTabText(index, self.tab_label(index))
+
+    def value(self) -> str:
+        blocks = []
+        for index, profile in enumerate(self.profiles, start=1):
+            lines = [f"Subject {index}: {self.tab_label(index - 1)}"]
+            for key, label, _field_type, _config in self.PROFILE_DEFINITIONS:
+                widget = profile.get(key)
+                if widget is None:
+                    continue
+                value = sanitize_prompt_text(self.field_value(widget))
+                if value:
+                    lines.append(f"- {label}: {value}")
+            if len(lines) > 1:
+                blocks.append("\n".join(lines))
+        return "\n\n".join(blocks)
+
+    def data(self) -> list[dict[str, Any]]:
+        profiles = []
+        for profile in self.profiles:
+            item = {}
+            for key, _label, _field_type, _config in self.PROFILE_DEFINITIONS:
+                widget = profile.get(key)
+                if widget is not None:
+                    item[key] = self.field_data(widget)
+            profiles.append(item)
+        return profiles
+
+    def set_data(self, value: Any) -> None:
+        profiles = value if isinstance(value, list) else []
+        self.profile_cache = [profile if isinstance(profile, dict) else {} for profile in profiles]
+        if len(profiles) > self.tabs.count():
+            self.set_count(len(profiles))
+        for index, profile_data in enumerate(profiles[: self.tabs.count()]):
+            if isinstance(profile_data, dict):
+                self.apply_profile_data(self.profiles[index], profile_data)
+                self.refresh_tab_label(index)
+
+    def apply_profile_data(self, fields: dict[str, QWidget], data: dict[str, Any]) -> None:
+        for key, _label, _field_type, _config in self.PROFILE_DEFINITIONS:
+            widget = fields.get(key)
+            if widget is not None:
+                self.set_field_data(widget, data.get(key))
+
+    @staticmethod
+    def field_value(widget: QWidget) -> Any:
+        if isinstance(widget, (ComboCustomField, OptionPickerField)):
+            return widget.value()
+        if isinstance(widget, QLineEdit):
+            return sanitize_prompt_text(widget.text(), MAX_SINGLE_LINE_CHARS, False)
+        if isinstance(widget, QPlainTextEdit):
+            return sanitize_prompt_text(widget.toPlainText())
+        return ""
+
+    @staticmethod
+    def field_data(widget: QWidget) -> Any:
+        if isinstance(widget, (ComboCustomField, OptionPickerField)):
+            return widget.data()
+        if isinstance(widget, QLineEdit):
+            return sanitize_prompt_text(widget.text(), MAX_SINGLE_LINE_CHARS, False)
+        if isinstance(widget, QPlainTextEdit):
+            return sanitize_prompt_text(widget.toPlainText())
+        return None
+
+    @staticmethod
+    def set_field_data(widget: QWidget, value: Any) -> None:
+        if isinstance(widget, (ComboCustomField, OptionPickerField)):
+            widget.set_data(value)
+        elif isinstance(widget, QLineEdit):
+            widget.setText(sanitize_prompt_text(value, MAX_SINGLE_LINE_CHARS, False))
+        elif isinstance(widget, QPlainTextEdit):
+            widget.setPlainText(sanitize_prompt_text(value))
+
+    def clear(self) -> None:
+        self.profile_cache = [{} for _profile in self.profiles]
+        for profile in self.profiles:
+            for key, _label, _field_type, _config in self.PROFILE_DEFINITIONS:
+                widget = profile.get(key)
+                if isinstance(widget, (ComboCustomField, OptionPickerField)):
+                    widget.clear()
+                elif isinstance(widget, QLineEdit):
+                    widget.clear()
+                elif isinstance(widget, QPlainTextEdit):
+                    widget.clear()
+        for index in range(self.tabs.count()):
+            self.refresh_tab_label(index)
+
+
 class ImagePromptBuilder(QMainWindow):
     def __init__(self) -> None:
         super().__init__()
@@ -1526,6 +2062,7 @@ class ImagePromptBuilder(QMainWindow):
         self.input_tabs = QTabWidget()
         for section, definitions in SECTIONS.items():
             self.add_section_tab(section, definitions)
+        self.connect_subject_profiles()
         splitter.addWidget(self.input_tabs)
 
         self.output_tabs = QTabWidget()
@@ -1689,10 +2226,19 @@ class ImagePromptBuilder(QMainWindow):
             return MonitorPositionField(config)
         if field_type == "options":
             return OptionPickerField(label, config)
+        if field_type == "subjects":
+            return SubjectProfilesField()
         raise ValueError(f"Unknown field type: {field_type}")
 
+    def connect_subject_profiles(self) -> None:
+        count_widget = self.widgets.get("subject_count")
+        profiles_widget = self.widgets.get("subject_profiles")
+        if isinstance(count_widget, QSpinBox) and isinstance(profiles_widget, SubjectProfilesField):
+            profiles_widget.set_count(count_widget.value())
+            count_widget.valueChanged.connect(profiles_widget.set_count)
+
     def widget_value(self, widget: QWidget) -> Any:
-        if isinstance(widget, (ComboCustomField, FileField, MonitorPositionField, OptionPickerField)):
+        if isinstance(widget, (ComboCustomField, FileField, MonitorPositionField, OptionPickerField, SubjectProfilesField)):
             return widget.value()
         if isinstance(widget, QLineEdit):
             return sanitize_prompt_text(widget.text(), MAX_SINGLE_LINE_CHARS, False)
@@ -1705,7 +2251,7 @@ class ImagePromptBuilder(QMainWindow):
         return ""
 
     def widget_data(self, widget: QWidget) -> Any:
-        if isinstance(widget, (ComboCustomField, FileField, MonitorPositionField, OptionPickerField)):
+        if isinstance(widget, (ComboCustomField, FileField, MonitorPositionField, OptionPickerField, SubjectProfilesField)):
             return widget.data()
         if isinstance(widget, QLineEdit):
             return sanitize_prompt_text(widget.text(), MAX_SINGLE_LINE_CHARS, False)
@@ -1718,7 +2264,7 @@ class ImagePromptBuilder(QMainWindow):
         return None
 
     def set_widget_data(self, widget: QWidget, value: Any) -> None:
-        if isinstance(widget, (ComboCustomField, FileField, MonitorPositionField, OptionPickerField)):
+        if isinstance(widget, (ComboCustomField, FileField, MonitorPositionField, OptionPickerField, SubjectProfilesField)):
             widget.set_data(value)
         elif isinstance(widget, QLineEdit):
             widget.setText(sanitize_prompt_text(value, MAX_SINGLE_LINE_CHARS, False))
@@ -1848,20 +2394,33 @@ class ImagePromptBuilder(QMainWindow):
 
     def make_editing(self, v: dict[str, Any], mode: str, project: str) -> str:
         reference = self.clean(v.get("reference_image")) or "Not selected"
+        reference_instructions = self.clean(v.get("reference_instructions"))
         changes = self.clean(v.get("editing_changes")) or "No edit-specific changes entered."
         unchanged = self.clean(v.get("unchanged_details")) or "Preserve all areas not explicitly mentioned."
+        preserve = self.clean(v.get("preserve_invariants"))
+        hard_constraints = self.clean(v.get("hard_constraints"))
         continuity = self.clean(v.get("continuity_notes"))
         lines = [f"MODE: {mode}"]
         if project:
             lines.append(f"ASSET: {project}")
         lines += [
             f"REFERENCE IMAGE: {reference}",
+        ]
+        if reference_instructions:
+            lines += ["REFERENCE INSTRUCTIONS:", reference_instructions]
+        lines += [
             "",
             "CHANGES TO MAKE:",
             changes,
             "",
             "KEEP UNCHANGED:",
             unchanged,
+        ]
+        if preserve:
+            lines += ["", "PRESERVE / LOCK:", preserve]
+        if hard_constraints:
+            lines += ["", "HARD CONSTRAINTS:", hard_constraints]
+        lines += [
             "",
             "MATCHING REQUIREMENTS:",
             "Match the original perspective, scale, lighting, shadows, reflections, texture, and image grain where applicable.",
@@ -1874,6 +2433,7 @@ class ImagePromptBuilder(QMainWindow):
         lines = [f"PROJECT / ASSET: {project}"] if project else []
         for key, heading in [
             ("subject_description", "CORE SUBJECT"),
+            ("subject_profiles", "NAMED SUBJECTS"),
             ("appearance", "APPEARANCE"),
             ("hair", "HAIR"),
             ("eyes", "EYES"),
@@ -1881,6 +2441,7 @@ class ImagePromptBuilder(QMainWindow):
             ("accessories", "ACCESSORIES / PROPS"),
             ("continuity_notes", "CONTINUITY RULES"),
             ("unchanged_details", "LOCKED DETAILS"),
+            ("preserve_invariants", "PRESERVE / LOCK"),
             ("reference_image", "REFERENCE IMAGE"),
         ]:
             value = self.clean(v.get(key))
@@ -1895,6 +2456,7 @@ class ImagePromptBuilder(QMainWindow):
         priority = [
             "image_type",
             "subject_description",
+            "subject_profiles",
             "appearance",
             "hair",
             "eyes",
@@ -1906,6 +2468,7 @@ class ImagePromptBuilder(QMainWindow):
             "shot_type",
             "camera_angle",
             "location",
+            "environment_details",
             "time_of_day",
             "weather",
             "lighting_type",
@@ -2051,7 +2614,7 @@ class ImagePromptBuilder(QMainWindow):
         self.mode.setCurrentIndex(0)
         self.project_name.clear()
         for key, widget in self.widgets.items():
-            if isinstance(widget, (ComboCustomField, FileField, MonitorPositionField, OptionPickerField)):
+            if isinstance(widget, (ComboCustomField, FileField, MonitorPositionField, OptionPickerField, SubjectProfilesField)):
                 widget.clear()
             elif isinstance(widget, QLineEdit):
                 widget.clear()

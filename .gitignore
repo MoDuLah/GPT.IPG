@@ -10,3 +10,7 @@ __pycache__/
 dist/
 build/
 *.spec
+presets/*
+!presets/.gitkeep
+outputs/
+exports/

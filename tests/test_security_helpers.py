@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import os
 import tempfile
 import unittest
@@ -9,7 +10,13 @@ os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
 from PySide6.QtWidgets import QApplication, QMessageBox
 
-from image_prompt_builder import ImagePromptBuilder, sanitize_prompt_text, validate_allowed_file_path
+from image_prompt_builder import (
+    ImagePromptBuilder,
+    SECTIONS,
+    SubjectProfilesField,
+    sanitize_prompt_text,
+    validate_allowed_file_path,
+)
 
 
 class PathValidationTests(unittest.TestCase):
@@ -90,6 +97,96 @@ class FileSinkTests(unittest.TestCase):
             window.write_text(inside, "ok", allowed)
 
             self.assertEqual(inside.read_text(encoding="utf-8"), "ok")
+
+
+class SubjectProfilesTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.app = QApplication.instance() or QApplication([])
+
+    def test_subject_profiles_follow_count_and_save_names(self) -> None:
+        profiles = SubjectProfilesField()
+        profiles.set_count(3)
+        profiles.profiles[0]["name"].setText("Neo")
+        profiles.profiles[1]["name"].setText("Trinity")
+        profiles.profiles[2]["name"].setText("Morpheus")
+
+        data = profiles.data()
+
+        self.assertEqual([item["name"] for item in data], ["Neo", "Trinity", "Morpheus"])
+        self.assertEqual(profiles.tabs.tabText(1), "Trinity")
+
+    def test_subject_profiles_render_named_prompt_blocks(self) -> None:
+        profiles = SubjectProfilesField()
+        profiles.set_count(2)
+        profiles.set_data(
+            [
+                {"name": "Neo", "role": "hero", "action": "dodging bullets"},
+                {"name": "Agent Smith", "role": "antagonist", "expression": {"selected": "Authoritative"}},
+            ]
+        )
+
+        rendered = profiles.value()
+
+        self.assertIn("Subject 1: Neo", rendered)
+        self.assertIn("- Action: dodging bullets", rendered)
+        self.assertIn("Subject 2: Agent Smith", rendered)
+        self.assertIn("- Expression: Authoritative", rendered)
+
+    def test_subject_profiles_restore_hidden_profiles_when_count_increases(self) -> None:
+        profiles = SubjectProfilesField()
+        profiles.set_count(3)
+        profiles.profiles[1]["name"].setText("Trinity")
+        profiles.set_count(1)
+        profiles.set_count(3)
+
+        self.assertEqual(profiles.profiles[1]["name"].text(), "Trinity")
+
+
+class PresetVocabularyTests(unittest.TestCase):
+    def test_preset_selected_values_exist_in_builder_controls(self) -> None:
+        preset_paths = sorted(Path("presets").glob("*.json"))
+        if not preset_paths:
+            self.skipTest("No preset folder in this checkout")
+
+        field_defs = {}
+        for _section, definitions in SECTIONS.items():
+            for key, _label, field_type, config in definitions:
+                field_defs[key] = (field_type, config)
+
+        combo_options = {
+            key: set(config)
+            for key, (field_type, config) in field_defs.items()
+            if field_type == "combo"
+        }
+        option_values = {
+            key: {item for group in config.values() for item in group}
+            for key, (field_type, config) in field_defs.items()
+            if field_type == "options"
+        }
+        missing = []
+
+        for path in preset_paths:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            for key, value in data.get("fields", {}).items():
+                if key in combo_options:
+                    selected = value.get("selected") if isinstance(value, dict) else value
+                    if isinstance(selected, str) and selected.strip() and selected.strip() not in combo_options[key]:
+                        missing.append(f"{path.name}:{key}:{selected.strip()}")
+                elif key in option_values:
+                    selected_items = value.get("selected") if isinstance(value, dict) else []
+                    if isinstance(selected_items, str):
+                        selected_items = [
+                            item.strip()
+                            for item in selected_items.replace(";", ",").split(",")
+                            if item.strip()
+                        ]
+                    for item in selected_items or []:
+                        item = str(item).strip()
+                        if item and item not in option_values[key]:
+                            missing.append(f"{path.name}:{key}:{item}")
+
+        self.assertEqual([], missing)
 
 
 if __name__ == "__main__":
