@@ -1,0 +1,96 @@
+{
+  "preset_version": 1,
+  "mode": "Environment portrait",
+  "project_name": "Surface Ruins - Post-War Landscape",
+  "fields": {
+    "image_type": "Environment portrait",
+    "purpose": "Matrix Graphic Novel - Location reference for artists",
+    "aspect_ratio": "16:9 wide",
+    "background_type": "Desolate landscape",
+    "framing": "Wide establishing shot",
+    "subject_type": "Architecture",
+    "subject_count": 0,
+    "appearance": {
+      "selected": [
+        "ruined cityscape",
+        "post-apocalyptic landscape",
+        "destroyed buildings",
+        "dark sky"
+      ],
+      "custom": "Desolate surface world with ruined urban structures under dark sky"
+    },
+    "hair": {
+      "selected": [],
+      "custom": ""
+    },
+    "eyes": {
+      "selected": [],
+      "custom": ""
+    },
+    "clothing": {
+      "selected": [],
+      "custom": ""
+    },
+    "accessories": {
+      "selected": [],
+      "custom": ""
+    },
+    "pose": "",
+    "action": "",
+    "expression": "",
+    "gaze": "",
+    "shot_type": "Wide landscape shot",
+    "camera_angle": "Eye level or elevated",
+    "perspective": "Deep perspective",
+    "subject_placement": "Full frame",
+    "depth_of_field": "Deep focus",
+    "location": "Surface world ruins",
+    "setting_type": "Post-apocalyptic urban landscape",
+    "time_period": "Post-Machine War",
+    "time_of_day": "Night or perpetual darkness",
+    "weather": "Stormy, ash-filled",
+    "lighting_type": "Ambient glow from fires and machinery",
+    "lighting_direction": "Multiple scattered sources",
+    "colour_temperature": "Cool blue with orange fire glow",
+    "contrast": "High contrast",
+    "atmosphere": "Heavy ash, storm clouds",
+    "art_style": "Graphic novel",
+    "linework": "Bold, dramatic lines",
+    "shading": "Hard shadow rendering",
+    "detail_level": "Moderately detailed",
+    "anatomy_style": "N/A",
+    "mood": "Desolate, harsh, hopeless",
+    "palette_style": "Dark desaturated",
+    "main_colours": "#1a1a2e, #2d2d4a, #4a3a2a, #8b4513",
+    "saturation": "Very desaturated",
+    "must_include": [
+      "Ruined urban landscape",
+      "Destroyed skyscrapers and buildings",
+      "Dark, stormy sky",
+      "Ash and debris in air",
+      "Scattered fire or emergency lighting",
+      "No vegetation",
+      "Sense of abandonment",
+      "Post-apocalyptic atmosphere",
+      "Mechanical remnants visible",
+      "Harsh, unforgiving environment"
+    ],
+    "must_avoid": [
+      "Green vegetation",
+      "Bright sunlight",
+      "Clean surfaces",
+      "Modern intact buildings",
+      "Human activity",
+      "Warm inviting colors",
+      "Accidental text",
+      "Watermarks",
+      "Unrequested logos",
+      "Low resolution",
+      "Heavy blur",
+      "Compression artifacts"
+    ],
+    "continuity_notes": "Surface world after Operation Dark Storm. Perpetual darkness from nanomachine clouds. Ruined human cities reclaimed by machines. Harsh, desolate environment where hovercrafts operate. Represents the cost of the Machine War.",
+    "unchanged_details": "Dark stormy sky, ruined structures, ash-filled atmosphere, desolate mood",
+    "output_finish": "Production-ready final artwork"
+  }
+}
