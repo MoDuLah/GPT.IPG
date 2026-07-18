@@ -1,0 +1,108 @@
+{
+  "preset_version": 1,
+  "mode": "Full scene composition",
+  "project_name": "Training Construct - White Void Dojo",
+  "fields": {
+    "image_type": "Full scene composition",
+    "purpose": "Matrix Graphic Novel - Scene template for artists",
+    "aspect_ratio": "16:9 wide",
+    "background_type": "Minimalist white void",
+    "framing": "Medium shot with character interaction",
+    "subject_type": "Multiple characters training",
+    "subject_count": 2,
+    "appearance": {
+      "selected": [
+        "black martial arts uniform",
+        "casual training attire"
+      ],
+      "custom": "Mentor in black gi versus student in casual training clothes"
+    },
+    "hair": {
+      "selected": [
+        "bald head",
+        "short dark hair"
+      ],
+      "custom": "Mentor is bald; student has short casual hair"
+    },
+    "eyes": {
+      "selected": [
+        "dark oval sunglasses",
+        "focused eyes"
+      ],
+      "custom": "Mentor wears signature sunglasses; student shows concentration"
+    },
+    "clothing": {
+      "selected": [
+        "black martial arts gi",
+        "casual training clothes"
+      ],
+      "custom": "Mentor in traditional black gi; student in simple training attire"
+    },
+    "accessories": {
+      "selected": [
+        "martial arts belt",
+        "training equipment"
+      ],
+      "custom": "Mentor wears black belt; both have minimal accessories"
+    },
+    "pose": "Martial arts stances, instructional positioning",
+    "action": "Training, sparring, demonstration",
+    "expression": "Mentor: calm, authoritative; Student: focused, learning",
+    "gaze": "Mentor observes; student concentrates",
+    "shot_type": "Medium shot capturing interaction",
+    "camera_angle": "Eye level",
+    "perspective": "Clean linear perspective",
+    "subject_placement": "Characters facing each other, balanced composition",
+    "depth_of_field": "Deep focus",
+    "location": "White void training construct",
+    "setting_type": "Simulated dojo environment",
+    "time_period": "Simulated reality",
+    "time_of_day": "Indefinite",
+    "weather": "None",
+    "lighting_type": "Uniform soft lighting",
+    "lighting_direction": "Even ambient",
+    "colour_temperature": "Neutral white",
+    "contrast": "Low to medium contrast",
+    "atmosphere": "Serene, focused, minimal",
+    "art_style": "Graphic novel",
+    "linework": "Clean precise lines",
+    "shading": "Soft gradient shading",
+    "detail_level": "Moderately detailed",
+    "anatomy_style": "Realistic proportions",
+    "mood": "Calm, instructional, focused",
+    "palette_style": "Minimalist white and black",
+    "main_colours": "#ffffff, #1a1a1a, #2d2d2d, #4a4a4a",
+    "saturation": "Very low saturation",
+    "must_include": [
+      "Mentor figure in black gi and sunglasses",
+      "Student in casual training clothes",
+      "Pure white void background",
+      "Martial arts stances",
+      "Clean, minimalist environment",
+      "Soft uniform lighting",
+      "Sense of focus and concentration",
+      "No distracting elements",
+      "Balanced composition",
+      "Training or instructional atmosphere"
+    ],
+    "must_avoid": [
+      "Colorful backgrounds",
+      "Complex environments",
+      "Outdoor elements",
+      "Natural lighting",
+      "Decorative elements",
+      "Accidental text",
+      "Watermarks",
+      "Unrequested logos",
+      "Low resolution",
+      "Heavy blur",
+      "Compression artifacts"
+    ],
+    "continuity_notes": "Training construct scene. White void represents the malleable nature of the Matrix. Mentor guides student through martial arts training. Minimalist environment emphasizes focus on technique and learning. Represents the awakening process.",
+    "character_combination": "Mentor (Morpheus) + Student (Neo)",
+    "environment_combination": "Training Construct + White Void",
+    "composition_notes": "Characters in balanced martial arts stances. Use clean lines and minimal background. Soft lighting creates calm atmosphere. Emphasize the instructional dynamic between mentor and student.",
+    "unchanged_details": "White void, black gi, sunglasses, martial arts poses",
+    "output_finish": "Production-ready final artwork"
+  }
+}
