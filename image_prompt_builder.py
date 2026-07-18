@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import random
 import sys
+import unicodedata
 from collections import OrderedDict
 from pathlib import Path
 from typing import Any
@@ -39,7 +40,63 @@ APP_NAME = "Image Prompt Builder"
 ORG_NAME = "MoDuL"
 PRESET_VERSION = 1
 
+APP_DIR = Path(__file__).resolve().parent
+OUTPUTS_DIR = APP_DIR / "outputs"
+PRESETS_DIR = APP_DIR / "presets"
+EXPORTS_DIR = APP_DIR / "exports"
+MAX_SINGLE_LINE_CHARS = 500
+MAX_PROMPT_TEXT_CHARS = 8000
+MAX_OUTPUT_TEXT_CHARS = 50000
+
 NS = "Not specified"
+
+
+def _path_is_inside(path: Path, allowed_dir: Path) -> bool:
+    try:
+        path.relative_to(allowed_dir)
+    except ValueError:
+        return False
+    return True
+
+
+def validate_allowed_file_path(path: str | Path, allowed_dir: str | Path) -> Path:
+    allowed = Path(allowed_dir).resolve()
+    candidate = Path(path)
+    if not candidate.is_absolute():
+        candidate = allowed / candidate
+    resolved = candidate.resolve(strict=False)
+    if resolved == allowed or not _path_is_inside(resolved, allowed):
+        raise ValueError(f"Selected file must be inside {allowed}.")
+    parent = resolved.parent
+    if not parent.exists() or not parent.is_dir():
+        raise ValueError(f"Selected folder does not exist: {parent}")
+    return resolved
+
+
+def sanitize_prompt_text(
+    value: Any,
+    max_chars: int = MAX_PROMPT_TEXT_CHARS,
+    preserve_newlines: bool = True,
+) -> str:
+    if value is None or isinstance(value, bool):
+        return ""
+    text = str(value).replace("\r\n", "\n").replace("\r", "\n")
+    chars: list[str] = []
+    for char in text:
+        if char == "\n":
+            chars.append("\n" if preserve_newlines else " ")
+        elif char == "\t":
+            chars.append(" ")
+        elif unicodedata.category(char).startswith("C"):
+            continue
+        else:
+            chars.append(char)
+    sanitized = "".join(chars)
+    if preserve_newlines:
+        sanitized = "\n".join(line.strip() for line in sanitized.splitlines())
+    else:
+        sanitized = " ".join(sanitized.split())
+    return sanitized.strip()[:max_chars].rstrip()
 
 IMAGE_TYPES = [
     NS,
@@ -1071,6 +1128,7 @@ class ComboCustomField(QWidget):
         self.combo = QComboBox()
         self.combo.addItems(options)
         self.custom = QLineEdit()
+        self.custom.setMaxLength(MAX_SINGLE_LINE_CHARS)
         self.custom.setPlaceholderText("Custom or additional detail...")
         layout = QHBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
@@ -1078,8 +1136,8 @@ class ComboCustomField(QWidget):
         layout.addWidget(self.custom, 2)
 
     def value(self) -> str:
-        selected = self.combo.currentText().strip()
-        custom = self.custom.text().strip()
+        selected = sanitize_prompt_text(self.combo.currentText(), MAX_SINGLE_LINE_CHARS, False)
+        custom = sanitize_prompt_text(self.custom.text(), MAX_SINGLE_LINE_CHARS, False)
         if selected in {NS, "None", "No text"}:
             selected = ""
         if selected and custom:
@@ -1087,14 +1145,18 @@ class ComboCustomField(QWidget):
         return selected or custom
 
     def data(self) -> dict[str, str]:
-        return {"selected": self.combo.currentText(), "custom": self.custom.text()}
+        return {
+            "selected": sanitize_prompt_text(self.combo.currentText(), MAX_SINGLE_LINE_CHARS, False),
+            "custom": sanitize_prompt_text(self.custom.text(), MAX_SINGLE_LINE_CHARS, False),
+        }
 
     def set_data(self, value: Any) -> None:
         if isinstance(value, dict):
-            selected = str(value.get("selected", NS))
-            custom = str(value.get("custom", ""))
+            selected = sanitize_prompt_text(value.get("selected", NS), MAX_SINGLE_LINE_CHARS, False)
+            custom = sanitize_prompt_text(value.get("custom", ""), MAX_SINGLE_LINE_CHARS, False)
         else:
-            selected, custom = str(value or NS), ""
+            selected = sanitize_prompt_text(value or NS, MAX_SINGLE_LINE_CHARS, False)
+            custom = ""
         index = self.combo.findText(selected)
         if index < 0:
             index, custom = 0, selected
@@ -1253,7 +1315,7 @@ class OptionPickerDialog(QDialog):
 
         self.custom = QPlainTextEdit()
         self.custom.setPlaceholderText("Optional custom notes...")
-        self.custom.setPlainText(custom_notes)
+        self.custom.setPlainText(sanitize_prompt_text(custom_notes))
         self.custom.setMaximumHeight(90)
         layout.addWidget(QLabel("Custom notes"))
         layout.addWidget(self.custom)
@@ -1275,7 +1337,7 @@ class OptionPickerDialog(QDialog):
         return [option for option, checkbox in self.checkboxes.items() if checkbox.isChecked()]
 
     def custom_text(self) -> str:
-        return self.custom.toPlainText().strip()
+        return sanitize_prompt_text(self.custom.toPlainText())
 
     def clear_checks(self) -> None:
         for checkbox in self.checkboxes.values():
@@ -1315,11 +1377,12 @@ class OptionPickerField(QWidget):
     def value(self) -> str:
         selected_text = ", ".join(self.selected)
         if selected_text and self.custom_notes:
-            return f"{selected_text}; additional detail: {self.custom_notes}"
-        return selected_text or self.custom_notes
+            custom_notes = sanitize_prompt_text(self.custom_notes)
+            return f"{selected_text}; additional detail: {custom_notes}"
+        return selected_text or sanitize_prompt_text(self.custom_notes)
 
     def data(self) -> dict[str, Any]:
-        return {"selected": self.selected, "custom": self.custom_notes}
+        return {"selected": self.selected, "custom": sanitize_prompt_text(self.custom_notes)}
 
     def set_data(self, value: Any) -> None:
         if isinstance(value, dict):
@@ -1327,13 +1390,17 @@ class OptionPickerField(QWidget):
             if isinstance(selected, str):
                 selected_items = self.parse_items(selected)
             elif isinstance(selected, list):
-                selected_items = [str(item).strip() for item in selected if str(item).strip()]
+                selected_items = [
+                    sanitize_prompt_text(item, MAX_SINGLE_LINE_CHARS, False)
+                    for item in selected
+                    if sanitize_prompt_text(item, MAX_SINGLE_LINE_CHARS, False)
+                ]
             else:
                 selected_items = []
             self.selected = self.normalise_selected(selected_items)
-            self.custom_notes = str(value.get("custom", "") or "").strip()
+            self.custom_notes = sanitize_prompt_text(value.get("custom", ""))
         else:
-            text = str(value or "").strip()
+            text = sanitize_prompt_text(value)
             selected_items = self.parse_items(text)
             self.selected = self.normalise_selected(selected_items)
             if self.selected:
@@ -1365,6 +1432,7 @@ class OptionPickerField(QWidget):
 
     @staticmethod
     def parse_items(text: str) -> list[str]:
+        text = sanitize_prompt_text(text)
         for marker in ["; additional detail:", "; Additional detail:", "additional detail:"]:
             text = text.replace(marker, ",")
         separators_normalised = text.replace("\n", ",").replace(";", ",")
@@ -1375,6 +1443,7 @@ class FileField(QWidget):
     def __init__(self) -> None:
         super().__init__()
         self.edit = QLineEdit()
+        self.edit.setMaxLength(MAX_SINGLE_LINE_CHARS)
         self.edit.setPlaceholderText("Optional reference image path...")
         button = QPushButton("Browse")
         button.clicked.connect(self.browse)
@@ -1391,16 +1460,16 @@ class FileField(QWidget):
             "Images (*.png *.jpg *.jpeg *.webp *.bmp);;All files (*.*)",
         )
         if path:
-            self.edit.setText(path)
+            self.edit.setText(sanitize_prompt_text(path, MAX_SINGLE_LINE_CHARS, False))
 
     def value(self) -> str:
-        return self.edit.text().strip()
+        return sanitize_prompt_text(self.edit.text(), MAX_SINGLE_LINE_CHARS, False)
 
     def data(self) -> str:
-        return self.edit.text()
+        return sanitize_prompt_text(self.edit.text(), MAX_SINGLE_LINE_CHARS, False)
 
     def set_data(self, value: Any) -> None:
-        self.edit.setText(str(value or ""))
+        self.edit.setText(sanitize_prompt_text(value, MAX_SINGLE_LINE_CHARS, False))
 
     def clear(self) -> None:
         self.edit.clear()
@@ -1442,6 +1511,7 @@ class ImagePromptBuilder(QMainWindow):
             ]
         )
         self.project_name = QLineEdit()
+        self.project_name.setMaxLength(MAX_SINGLE_LINE_CHARS)
         self.project_name.setPlaceholderText("Optional project, scene, character, or asset name...")
         self.recent = QComboBox()
         self.recent.currentIndexChanged.connect(self.load_recent)
@@ -1516,6 +1586,57 @@ class ImagePromptBuilder(QMainWindow):
             action.triggered.connect(slot)
             toolbar.addAction(action)
 
+    def ensure_allowed_dir(self, allowed_dir: Path) -> bool:
+        try:
+            allowed_dir.mkdir(parents=True, exist_ok=True)
+        except OSError as exc:
+            QMessageBox.critical(self, APP_NAME, f"Could not prepare folder:\n{exc}")
+            return False
+        return True
+
+    def choose_allowed_save_path(
+        self,
+        title: str,
+        allowed_dir: Path,
+        suggested_name: str,
+        file_filter: str,
+    ) -> Path | None:
+        if not self.ensure_allowed_dir(allowed_dir):
+            return None
+        path, _ = QFileDialog.getSaveFileName(
+            self,
+            title,
+            str(allowed_dir / suggested_name),
+            file_filter,
+        )
+        if not path:
+            return None
+        try:
+            return validate_allowed_file_path(path, allowed_dir)
+        except ValueError as exc:
+            QMessageBox.warning(self, APP_NAME, str(exc))
+            return None
+
+    def choose_allowed_open_path(self, title: str, allowed_dir: Path, file_filter: str) -> Path | None:
+        if not self.ensure_allowed_dir(allowed_dir):
+            return None
+        path, _ = QFileDialog.getOpenFileName(
+            self,
+            title,
+            str(allowed_dir),
+            file_filter,
+        )
+        if not path:
+            return None
+        try:
+            safe_path = validate_allowed_file_path(path, allowed_dir)
+            if not safe_path.is_file():
+                raise ValueError(f"Selected file does not exist: {safe_path}")
+            return safe_path
+        except ValueError as exc:
+            QMessageBox.warning(self, APP_NAME, str(exc))
+            return None
+
     def add_section_tab(self, section: str, definitions: list[tuple]) -> None:
         page = QWidget()
         outer = QVBoxLayout(page)
@@ -1543,6 +1664,7 @@ class ImagePromptBuilder(QMainWindow):
             return ComboCustomField(config)
         if field_type == "line":
             widget = QLineEdit()
+            widget.setMaxLength(MAX_SINGLE_LINE_CHARS)
             widget.setPlaceholderText(config)
             return widget
         if field_type == "multi":
@@ -1573,9 +1695,9 @@ class ImagePromptBuilder(QMainWindow):
         if isinstance(widget, (ComboCustomField, FileField, MonitorPositionField, OptionPickerField)):
             return widget.value()
         if isinstance(widget, QLineEdit):
-            return widget.text().strip()
+            return sanitize_prompt_text(widget.text(), MAX_SINGLE_LINE_CHARS, False)
         if isinstance(widget, QPlainTextEdit):
-            return widget.toPlainText().strip()
+            return sanitize_prompt_text(widget.toPlainText())
         if isinstance(widget, QSpinBox):
             return widget.value()
         if isinstance(widget, QCheckBox):
@@ -1586,9 +1708,9 @@ class ImagePromptBuilder(QMainWindow):
         if isinstance(widget, (ComboCustomField, FileField, MonitorPositionField, OptionPickerField)):
             return widget.data()
         if isinstance(widget, QLineEdit):
-            return widget.text()
+            return sanitize_prompt_text(widget.text(), MAX_SINGLE_LINE_CHARS, False)
         if isinstance(widget, QPlainTextEdit):
-            return widget.toPlainText()
+            return sanitize_prompt_text(widget.toPlainText())
         if isinstance(widget, QSpinBox):
             return widget.value()
         if isinstance(widget, QCheckBox):
@@ -1599,9 +1721,9 @@ class ImagePromptBuilder(QMainWindow):
         if isinstance(widget, (ComboCustomField, FileField, MonitorPositionField, OptionPickerField)):
             widget.set_data(value)
         elif isinstance(widget, QLineEdit):
-            widget.setText(str(value or ""))
+            widget.setText(sanitize_prompt_text(value, MAX_SINGLE_LINE_CHARS, False))
         elif isinstance(widget, QPlainTextEdit):
-            widget.setPlainText(str(value or ""))
+            widget.setPlainText(sanitize_prompt_text(value))
         elif isinstance(widget, QSpinBox):
             try:
                 widget.setValue(int(value))
@@ -1617,18 +1739,19 @@ class ImagePromptBuilder(QMainWindow):
         data = {
             "preset_version": PRESET_VERSION,
             "mode": self.mode.currentText(),
-            "project_name": self.project_name.text(),
+            "project_name": sanitize_prompt_text(self.project_name.text(), MAX_SINGLE_LINE_CHARS, False),
             "fields": {key: self.widget_data(widget) for key, widget in self.widgets.items()},
         }
         if include_outputs:
-            data["outputs"] = {key: editor.toPlainText() for key, editor in self.outputs.items()}
+            data["outputs"] = {
+                key: sanitize_prompt_text(editor.toPlainText(), MAX_OUTPUT_TEXT_CHARS)
+                for key, editor in self.outputs.items()
+            }
         return data
 
     @staticmethod
     def clean(value: Any) -> str:
-        if value is None or isinstance(value, bool):
-            return ""
-        text = str(value).strip()
+        text = sanitize_prompt_text(value)
         return "" if text in {"", NS, "None", "No text"} else text
 
     @staticmethod
@@ -1641,7 +1764,7 @@ class ImagePromptBuilder(QMainWindow):
 
     def generate(self) -> None:
         v = self.values()
-        project = self.project_name.text().strip()
+        project = self.clean(self.project_name.text())
         mode = self.mode.currentText()
 
         section_blocks: list[str] = []
@@ -1718,9 +1841,9 @@ class ImagePromptBuilder(QMainWindow):
             "continuity": continuity,
             "compact": compact,
         }.items():
-            self.outputs[key].setPlainText(text)
+            self.outputs[key].setPlainText(sanitize_prompt_text(text, MAX_OUTPUT_TEXT_CHARS))
 
-        self.add_recent(full.strip())
+        self.add_recent(full)
         self.statusBar().showMessage("Prompts generated", 4000)
 
     def make_editing(self, v: dict[str, Any], mode: str, project: str) -> str:
@@ -1807,7 +1930,7 @@ class ImagePromptBuilder(QMainWindow):
 
     def copy_active(self) -> None:
         editor = self.outputs[list(self.outputs)[self.output_tabs.currentIndex()]]
-        text = editor.toPlainText().strip()
+        text = sanitize_prompt_text(editor.toPlainText(), MAX_OUTPUT_TEXT_CHARS)
         if not text:
             QMessageBox.information(self, APP_NAME, "The active output tab is empty.")
             return
@@ -1816,82 +1939,96 @@ class ImagePromptBuilder(QMainWindow):
 
     def save_output(self) -> None:
         key = list(self.outputs)[self.output_tabs.currentIndex()]
-        text = self.outputs[key].toPlainText().strip()
+        text = sanitize_prompt_text(self.outputs[key].toPlainText(), MAX_OUTPUT_TEXT_CHARS)
         if not text:
             QMessageBox.information(self, APP_NAME, "The active output tab is empty.")
             return
-        path, _ = QFileDialog.getSaveFileName(
-            self,
+        path = self.choose_allowed_save_path(
             "Save output",
+            OUTPUTS_DIR,
             self.suggest_name(key, ".txt"),
             "Text files (*.txt)",
         )
-        if path:
-            try:
-                Path(path).write_text(text, encoding="utf-8")
-                self.statusBar().showMessage(f"Saved {path}", 5000)
-            except OSError as exc:
-                QMessageBox.critical(self, APP_NAME, f"Could not save file:\n{exc}")
+        if path is not None:
+            self.write_text(path, text, OUTPUTS_DIR)
 
     def save_preset(self) -> None:
-        path, _ = QFileDialog.getSaveFileName(
-            self,
+        path = self.choose_allowed_save_path(
             "Save preset",
+            PRESETS_DIR,
             self.suggest_name("preset", ".json"),
             "JSON files (*.json)",
         )
-        if path:
-            self.write_json(path, self.preset_data(True))
+        if path is not None:
+            self.write_json(path, self.preset_data(True), PRESETS_DIR)
 
     def export_json(self) -> None:
-        path, _ = QFileDialog.getSaveFileName(
-            self,
+        path = self.choose_allowed_save_path(
             "Export JSON",
+            EXPORTS_DIR,
             self.suggest_name("image_prompt", ".json"),
             "JSON files (*.json)",
         )
-        if path:
+        if path is not None:
             data = self.preset_data(True)
             data["generated_values"] = self.values()
-            self.write_json(path, data)
+            self.write_json(path, data, EXPORTS_DIR)
 
     def load_preset(self) -> None:
-        path, _ = QFileDialog.getOpenFileName(
-            self,
+        path = self.choose_allowed_open_path(
             "Load preset",
-            "",
+            PRESETS_DIR,
             "JSON files (*.json);;All files (*.*)",
         )
-        if not path:
+        if path is None:
             return
         try:
-            data = json.loads(Path(path).read_text(encoding="utf-8"))
+            data = json.loads(path.read_text(encoding="utf-8"))
             if not isinstance(data, dict):
                 raise ValueError("JSON root must be an object.")
+            fields = data.get("fields", {})
+            outputs = data.get("outputs", {})
+            if fields is None:
+                fields = {}
+            if outputs is None:
+                outputs = {}
+            if not isinstance(fields, dict):
+                raise ValueError("Preset fields must be an object.")
+            if not isinstance(outputs, dict):
+                raise ValueError("Preset outputs must be an object.")
         except (OSError, json.JSONDecodeError, ValueError) as exc:
             QMessageBox.critical(self, APP_NAME, f"Could not load file:\n{exc}")
             return
 
-        mode_index = self.mode.findText(str(data.get("mode", "New image")))
+        mode_index = self.mode.findText(sanitize_prompt_text(data.get("mode", "New image"), MAX_SINGLE_LINE_CHARS, False))
         self.mode.setCurrentIndex(max(0, mode_index))
-        self.project_name.setText(str(data.get("project_name", "")))
-        for key, value in data.get("fields", {}).items():
+        self.project_name.setText(sanitize_prompt_text(data.get("project_name", ""), MAX_SINGLE_LINE_CHARS, False))
+        for key, value in fields.items():
             if key in self.widgets:
                 self.set_widget_data(self.widgets[key], value)
-        for key, value in data.get("outputs", {}).items():
+        for key, value in outputs.items():
             if key in self.outputs:
-                self.outputs[key].setPlainText(str(value or ""))
+                self.outputs[key].setPlainText(sanitize_prompt_text(value, MAX_OUTPUT_TEXT_CHARS))
         self.statusBar().showMessage(f"Loaded {path}", 5000)
 
-    def write_json(self, path: str, data: dict[str, Any]) -> None:
+    def write_text(self, path: str | Path, text: str, allowed_dir: Path) -> None:
         try:
-            Path(path).write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
-            self.statusBar().showMessage(f"Saved {path}", 5000)
-        except (OSError, TypeError) as exc:
+            safe_path = validate_allowed_file_path(path, allowed_dir)
+            safe_path.write_text(text, encoding="utf-8")
+            self.statusBar().showMessage(f"Saved {safe_path}", 5000)
+        except (OSError, ValueError) as exc:
+            QMessageBox.critical(self, APP_NAME, f"Could not save file:\n{exc}")
+
+    def write_json(self, path: str | Path, data: dict[str, Any], allowed_dir: Path) -> None:
+        try:
+            safe_path = validate_allowed_file_path(path, allowed_dir)
+            safe_path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+            self.statusBar().showMessage(f"Saved {safe_path}", 5000)
+        except (OSError, TypeError, ValueError) as exc:
             QMessageBox.critical(self, APP_NAME, f"Could not save file:\n{exc}")
 
     def suggest_name(self, suffix: str, extension: str) -> str:
-        name = self.project_name.text().strip() or "image_prompt"
+        name = sanitize_prompt_text(self.project_name.text(), MAX_SINGLE_LINE_CHARS, False) or "image_prompt"
         safe = "".join(c if c.isalnum() or c in "-_" else "_" for c in name).strip("_")
         return f"{safe or 'image_prompt'}_{suffix}{extension}"
 
@@ -1931,12 +2068,19 @@ class ImagePromptBuilder(QMainWindow):
     def recent_prompts(self) -> list[str]:
         value = self.settings.value("recent_prompts", [])
         if isinstance(value, str):
-            return [value] if value else []
-        return [str(item) for item in value] if isinstance(value, list) else []
+            prompt = sanitize_prompt_text(value, MAX_OUTPUT_TEXT_CHARS)
+            return [prompt] if prompt else []
+        if not isinstance(value, list):
+            return []
+        prompts = [sanitize_prompt_text(item, MAX_OUTPUT_TEXT_CHARS) for item in value]
+        return [prompt for prompt in prompts if prompt]
 
     def add_recent(self, prompt: str) -> None:
-        recent = [item for item in self.recent_prompts() if item != prompt]
-        recent.insert(0, prompt)
+        clean_prompt = sanitize_prompt_text(prompt, MAX_OUTPUT_TEXT_CHARS)
+        if not clean_prompt:
+            return
+        recent = [item for item in self.recent_prompts() if item != clean_prompt]
+        recent.insert(0, clean_prompt)
         self.settings.setValue("recent_prompts", recent[:15])
         self.refresh_recent()
 
@@ -1952,7 +2096,7 @@ class ImagePromptBuilder(QMainWindow):
 
     def load_recent(self, index: int) -> None:
         if index > 0:
-            self.outputs["full"].setPlainText(str(self.recent.itemData(index)))
+            self.outputs["full"].setPlainText(sanitize_prompt_text(self.recent.itemData(index), MAX_OUTPUT_TEXT_CHARS))
             self.output_tabs.setCurrentIndex(0)
 
     def restore_window(self) -> None:

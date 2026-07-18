@@ -18,6 +18,6 @@ python image_prompt_builder.py
 
 Or double-click `run_image_prompt_builder.bat`.
 
-The app can save and load JSON presets, export generated prompt data, copy the active output tab to the clipboard, and save output tabs as text files.
+The app can save and load JSON presets, export generated prompt data, copy the active output tab to the clipboard, and save output tabs as text files. File dialogs are scoped to app-owned folders: `presets/` for presets, `outputs/` for text output, and `exports/` for generated JSON exports.
 
 Image Setup includes a monitor-position picker. Subject appearance, hair, eyes, clothing, and accessories include checkbox option pickers with optional custom notes.
